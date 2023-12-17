@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhj3osglx5xpw"]
+
+[ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8, 16.2)
+color = Color(0.67451, 1, 1, 1)
+
+[node name="O2Label" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 6.38889
+offset_top = 0.987654
+offset_right = 132.389
+offset_bottom = 45.9877
+scale = Vector2(0.0624998, 0.0624998)
+theme = ExtResource("1_10pbt")
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 30
+text = "O2 temp"
+
+[node name="ButtonBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1152.0
+offset_top = 648.0
+offset_right = 1192.0
+offset_bottom = 688.0
+scale = Vector2(-28.7801, -1.32)
+
+[node name="GreenhouseControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8, 14.8)
+
+[node name="RightButton" type="Button" parent="GreenhouseControl"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 16.2162
+offset_right = 43.0
+offset_bottom = 24.2162
+scale = Vector2(0.484722, 1)
+
+[node name="LeftButton" type="Button" parent="GreenhouseControl"]
+layout_mode = 0
+offset_left = 0.833333
+offset_top = 15.6757
+offset_right = 8.83333
+offset_bottom = 23.6757
+scale = Vector2(0.508333, 1)

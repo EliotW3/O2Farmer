@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://cgg3diq50tr2n"]
+
+[resource]
+default_font_size = 0
+HScrollBar/icons/decrement = null
