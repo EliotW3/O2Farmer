@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=5 format=3 uid="uid://bhj3osglx5xpw"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
+[ext_resource type="Texture2D" uid="uid://d14tgm2vawu2n" path="res://Assets/shopButton.png" id="3_111wa"]
+[ext_resource type="Texture2D" uid="uid://d0pyq478tax5g" path="res://Assets/xButton2.png" id="4_cxgqm"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_2d5s0")
 
 [node name="Background" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(28.8, 16.2)
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0.67451, 1, 1, 1)
 
 [node name="O2Label" type="Label" parent="Background"]
@@ -22,23 +25,33 @@ theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 30
 text = "O2 temp"
 
-[node name="ButtonBar" type="Control" parent="."]
+[node name="ShopButtonControl" type="Control" parent="."]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1152.0
-offset_top = 648.0
-offset_right = 1192.0
-offset_bottom = 688.0
-scale = Vector2(-28.7801, -1.32)
+offset_top = 968.0
+offset_right = 1920.0
+offset_bottom = 1048.0
+scale = Vector2(0.320001, 1.48)
+
+[node name="ShopButton" type="Button" parent="ShopButtonControl"]
+layout_mode = 0
+offset_left = 574.998
+offset_top = 0.000244141
+offset_right = 1195.0
+offset_bottom = 328.0
+scale = Vector2(1, 0.166667)
+icon = ExtResource("3_111wa")
+flat = true
 
 [node name="GreenhouseControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(28.8, 14.8)
+offset_right = 1920.0
+offset_bottom = 1000.0
 
 [node name="RightButton" type="Button" parent="GreenhouseControl"]
+visible = false
 layout_mode = 0
 offset_left = 35.0
 offset_top = 16.2162
@@ -47,9 +60,44 @@ offset_bottom = 24.2162
 scale = Vector2(0.484722, 1)
 
 [node name="LeftButton" type="Button" parent="GreenhouseControl"]
+visible = false
 layout_mode = 0
 offset_left = 0.833333
 offset_top = 15.6757
 offset_right = 8.83333
 offset_bottom = 23.6757
 scale = Vector2(0.508333, 1)
+
+[node name="ShopControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShopBackground" type="Panel" parent="ShopControl"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 1080.0
+
+[node name="CloseShopControl" type="Control" parent="ShopControl/ShopBackground"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 512.0
+offset_top = 8.0
+offset_right = 552.0
+offset_bottom = 48.0
+scale = Vector2(2.04, 2.08)
+
+[node name="CloseShopButton" type="Button" parent="ShopControl/ShopBackground/CloseShopControl"]
+clip_contents = true
+layout_mode = 0
+offset_left = 3.92163
+offset_top = -7.69231
+offset_right = 1305.92
+offset_bottom = 1295.31
+scale = Vector2(0.0831367, 0.0831367)
+icon = ExtResource("4_cxgqm")
+flat = true
+
+[connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_down"]
