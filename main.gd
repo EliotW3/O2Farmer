@@ -1,11 +1,11 @@
 extends Node2D
 
 # variables
-var oxygen = 10000 # starting value of o2, enough for first plant
+var oxygen = 100 # starting value of o2, enough for first plant
 var totalProduction = 0 # o2 earned per second
 
 # daisy
-# max daisy level = 4
+# max daisy level = 5
 var daisyLevel = 0
 var daisyProduction = 0
 var daisyMaxProduction = 10
@@ -43,13 +43,13 @@ func _on_shop_button_button_down():
 
 
 func _on_daisy_buy_button_button_down():
-	if daisyLevel < 4: # max daisy level = 4
+	if daisyLevel < 5: # max daisy level = 5
 		# increment daisy level, increase production, increase daisy price, remove oxygen
 		if daisyCost <= oxygen:
 			# purchase allowed
 			oxygen = oxygen - daisyCost
 			daisyLevel += 1
-			daisyProduction += (daisyMaxProduction/4)
+			daisyProduction += (daisyMaxProduction/5)
 			
 			if daisyLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy1.png")
@@ -60,7 +60,9 @@ func _on_daisy_buy_button_button_down():
 			
 			if daisyLevel == 4:
 				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy4.png")
-				
+			
+			if daisyLevel == 5:
+				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy5.png")
 				# change button for buy daisy to say max.
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl.hide()
 								
