@@ -1,17 +1,20 @@
 extends Node2D
 
 # variables
-var oxygen = 100 # starting value of o2, enough for first plant
+var oxygen = 10000 # starting value of o2, enough for first plant
+var totalProduction = 0 # o2 earned per second
 
 # daisy
+# max daisy level = 4
 var daisyLevel = 0
-var daisyProduction = 1
+var daisyProduction = 0
+var daisyMaxProduction = 10
 var daisyCost = 100
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	UpdateUI()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,9 +23,11 @@ func _process(delta):
 	
 # function to update UI
 func UpdateUI():
-	pass
+	$Background/O2Label.text = str(oxygen)
+	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyCost.text = str(daisyCost)
+	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyIncrement.text = str(daisyProduction)
 	
-
+	totalProduction = daisyProduction
 
 
 
@@ -35,3 +40,28 @@ func _on_close_shop_button_button_down():
 func _on_shop_button_button_down():
 	$ShopControl.show()
 	$ShopButtonControl/ShopButton.hide()
+
+
+func _on_daisy_buy_button_button_down():
+	if daisyLevel < 4: # max daisy level = 4
+		# increment daisy level, increase production, increase daisy price, remove oxygen
+		if daisyCost <= oxygen:
+			# purchase allowed
+			oxygen = oxygen - daisyCost
+			daisyLevel += 1
+			daisyProduction += (daisyMaxProduction/4)
+			
+			if daisyLevel == 4:
+				# daisy production is maxed to 10 for level 4.
+				# change button for buy daisy to say max.
+				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl.hide()
+								
+			daisyCost = daisyCost * 1.2
+			
+			UpdateUI()
+
+
+func _on_timer_timeout(): # for producing o2
+	oxygen += totalProduction
+	UpdateUI()
+	$Timer.start()
