@@ -25,7 +25,7 @@ func _process(delta):
 func UpdateUI():
 	$Background/O2Label.text = str(oxygen)
 	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyCost.text = str(daisyCost)
-	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyIncrement.text = str(daisyProduction)
+	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyIncrement.text = "+" + str(daisyProduction)
 	
 	totalProduction = daisyProduction
 
@@ -51,8 +51,16 @@ func _on_daisy_buy_button_button_down():
 			daisyLevel += 1
 			daisyProduction += (daisyMaxProduction/4)
 			
+			if daisyLevel == 1:
+				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy1.png")
+			if daisyLevel == 2:
+				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy2.png")
+			if daisyLevel == 3:
+				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy3.png")
+			
 			if daisyLevel == 4:
-				# daisy production is maxed to 10 for level 4.
+				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy4.png")
+				
 				# change button for buy daisy to say max.
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl.hide()
 								
@@ -62,6 +70,10 @@ func _on_daisy_buy_button_button_down():
 
 
 func _on_timer_timeout(): # for producing o2
+	
+	if daisyLevel > 0:
+		$GreenhouseControl/VisiblePlantsControl/Plant1Control/Plant1Bubbles.play()
+	
 	oxygen += totalProduction
 	UpdateUI()
 	$Timer.start()

@@ -1,10 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=11 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
 [ext_resource type="Texture2D" uid="uid://d14tgm2vawu2n" path="res://Assets/shopButton.png" id="3_111wa"]
 [ext_resource type="Texture2D" uid="uid://d0pyq478tax5g" path="res://Assets/xButton2.png" id="4_cxgqm"]
+[ext_resource type="Texture2D" uid="uid://crvjpfy6g163l" path="res://Assets/emptyPot.png" id="4_dnt6u"]
 [ext_resource type="Texture2D" uid="uid://c68tn6dcu0f26" path="res://Assets/buyButton2.png" id="5_a2b3g"]
+[ext_resource type="Texture2D" uid="uid://cnkpc7dlvrjt5" path="res://Assets/bubbles.png" id="5_o1l3w"]
+[ext_resource type="Texture2D" uid="uid://del8yvuqltsuk" path="res://Assets/bubbles2.png" id="6_c3lov"]
+[ext_resource type="Texture2D" uid="uid://bsfpqslhm2dvh" path="res://Assets/bubbles3.png" id="7_sbf1p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7rr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o1l3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_c3lov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sbf1p")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2d5s0")
@@ -68,6 +95,33 @@ offset_top = 15.6757
 offset_right = 8.83333
 offset_bottom = 23.6757
 scale = Vector2(0.508333, 1)
+
+[node name="VisiblePlantsControl" type="Control" parent="GreenhouseControl"]
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 184.0
+offset_right = 168.0
+offset_bottom = 224.0
+scale = Vector2(41.48, 17.32)
+
+[node name="Plant1Control" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.252363, 1)
+
+[node name="Daisy" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/Plant1Control"]
+position = Vector2(20, -1.848)
+scale = Vector2(0.0426824, 0.0426824)
+texture = ExtResource("4_dnt6u")
+
+[node name="Plant1Bubbles" type="AnimatedSprite2D" parent="GreenhouseControl/VisiblePlantsControl/Plant1Control"]
+position = Vector2(28.2766, 20.7852)
+scale = Vector2(0.0141383, 0.0141383)
+sprite_frames = SubResource("SpriteFrames_g7rr2")
+frame = 4
+frame_progress = 1.0
 
 [node name="ShopControl" type="Control" parent="."]
 visible = false
