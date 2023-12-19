@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=12 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
 [ext_resource type="Texture2D" uid="uid://d14tgm2vawu2n" path="res://Assets/shopButton.png" id="3_111wa"]
 [ext_resource type="Texture2D" uid="uid://d0pyq478tax5g" path="res://Assets/xButton2.png" id="4_cxgqm"]
-[ext_resource type="Texture2D" uid="uid://crvjpfy6g163l" path="res://Assets/emptyPot.png" id="4_dnt6u"]
+[ext_resource type="Texture2D" uid="uid://do2t7nwsw7rhd" path="res://Assets/emptyTray.png" id="4_ip2cq"]
 [ext_resource type="Texture2D" uid="uid://c68tn6dcu0f26" path="res://Assets/buyButton2.png" id="5_a2b3g"]
 [ext_resource type="Texture2D" uid="uid://cnkpc7dlvrjt5" path="res://Assets/bubbles.png" id="5_o1l3w"]
 [ext_resource type="Texture2D" uid="uid://del8yvuqltsuk" path="res://Assets/bubbles2.png" id="6_c3lov"]
 [ext_resource type="Texture2D" uid="uid://bsfpqslhm2dvh" path="res://Assets/bubbles3.png" id="7_sbf1p"]
+[ext_resource type="Texture2D" uid="uid://430h6xbfwejc" path="res://Assets/emptyPot2.png" id="8_mrhfy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7rr2"]
 animations = [{
@@ -99,22 +100,24 @@ scale = Vector2(0.508333, 1)
 [node name="VisiblePlantsControl" type="Control" parent="GreenhouseControl"]
 anchors_preset = 0
 offset_left = 128.0
-offset_top = 184.0
+offset_top = 144.0
 offset_right = 168.0
-offset_bottom = 224.0
+offset_bottom = 194.0
 scale = Vector2(41.48, 17.32)
 
 [node name="Plant1Control" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
 clip_contents = true
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.252363, 1)
+offset_left = 13.6933
+offset_top = 5.54273
+offset_right = 53.6933
+offset_bottom = 45.5427
+scale = Vector2(0.226326, 0.769053)
 
 [node name="Daisy" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/Plant1Control"]
-position = Vector2(20, -1.848)
-scale = Vector2(0.0426824, 0.0426824)
-texture = ExtResource("4_dnt6u")
+position = Vector2(28.9736, 25.2251)
+scale = Vector2(0.0224408, 0.00919706)
+texture = ExtResource("4_ip2cq")
 
 [node name="Plant1Bubbles" type="AnimatedSprite2D" parent="GreenhouseControl/VisiblePlantsControl/Plant1Control"]
 position = Vector2(28.2766, 20.7852)
@@ -122,6 +125,28 @@ scale = Vector2(0.0141383, 0.0141383)
 sprite_frames = SubResource("SpriteFrames_g7rr2")
 frame = 4
 frame_progress = 1.0
+
+[node name="Plant2Control" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+visible = false
+clip_contents = true
+anchors_preset = 0
+offset_left = 7.71456
+offset_top = 11.5473
+offset_right = 47.7146
+offset_bottom = 51.5473
+scale = Vector2(0.199614, 0.792148)
+
+[node name="Plant2Bubbles" type="AnimatedSprite2D" parent="GreenhouseControl/VisiblePlantsControl/Plant2Control"]
+position = Vector2(30.9175, 25.6558)
+scale = Vector2(0.0160303, 0.0137261)
+sprite_frames = SubResource("SpriteFrames_g7rr2")
+frame = 4
+frame_progress = 1.0
+
+[node name="Jade" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/Plant2Control"]
+position = Vector2(27.0532, 23.3236)
+scale = Vector2(0.0214081, 0.0214081)
+texture = ExtResource("8_mrhfy")
 
 [node name="ShopControl" type="Control" parent="."]
 visible = false
@@ -220,10 +245,93 @@ scale = Vector2(0.0529466, 0.11913)
 icon = ExtResource("5_a2b3g")
 flat = true
 
+[node name="DaisyLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListJadeControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+visible = false
+clip_contents = true
+anchors_preset = 0
+offset_top = 5.73356
+offset_right = 40.0
+offset_bottom = 45.7335
+scale = Vector2(1, 0.118044)
+
+[node name="JadeTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListJadeControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Jade"
+
+[node name="JadeCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListJadeControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="JadeIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListJadeControl"]
+layout_mode = 0
+offset_left = 19.8795
+offset_top = 5.71428
+offset_right = 59.8795
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+1"
+
+[node name="JadeBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListJadeControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+
+[node name="JadeBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListJadeControl/JadeBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="JadeLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListJadeControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
 [node name="Plant1Timer" type="Timer" parent="."]
+
+[node name="Plant2Timer" type="Timer" parent="."]
+wait_time = 60.0
 
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton" to="." method="_on_daisy_buy_button_button_down"]
-[connection signal="timeout" from="Plant1Timer" to="." method="_on_plant_1_timer_timeout"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListJadeControl/JadeBuyButtonControl/JadeBuyButton" to="." method="_on_jade_buy_button_button_down"]
 [connection signal="timeout" from="Plant1Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Plant1Timer" to="." method="_on_plant_1_timer_timeout"]
+[connection signal="timeout" from="Plant2Timer" to="." method="_on_plant_2_timer_timeout"]
