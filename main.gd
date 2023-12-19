@@ -16,7 +16,7 @@ var daisyCost = 100
 # max level = 120, timer = 1 min
 var jadeLevel = 0
 var jadeProduction = 0
-var jadeMaxProduction = 12000
+var jadeMaxProduction = 24000
 var jadeCost = 600
 
 
@@ -78,6 +78,8 @@ func _on_daisy_buy_button_button_down():
 			if daisyLevel == 60:
 				# change button for buy daisy to say max.
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl.hide()
+				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyMax.show()
+				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyLevelLabel.hide()
 								
 			daisyCost = int(daisyCost * 1.1)
 			
@@ -119,6 +121,8 @@ func _on_jade_buy_button_button_down():
 			if jadeLevel == 120:
 				# change button for buy daisy to say max.
 				$ShopControl/ShopBackground/ListControl/ListJadeControl/JadeBuyButtonControl.hide()
+				$ShopControl/ShopBackground/ListControl/ListJadeControl/JadeMax.show()
+				$ShopControl/ShopBackground/ListControl/ListJadeControl/JadeLevelLabel.hide()
 								
 			jadeCost = int(jadeCost * 1.15)
 			
