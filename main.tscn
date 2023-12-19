@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=19 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b2l1iqk3m8xv8" path="res://Assets/Pixelart/sunflower.png" id="11_0dwfv"]
 [ext_resource type="Texture2D" uid="uid://xk3pqwb4cjts" path="res://Assets/Pixelart/marigold.png" id="11_wgdma"]
 [ext_resource type="Texture2D" uid="uid://b4unbmrgt5vnd" path="res://Assets/Pixelart/greenhouse2.png" id="12_88iap"]
+[ext_resource type="Texture2D" uid="uid://hwkq7wvejn4v" path="res://Assets/Pixelart/iris.png" id="13_u8gaf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7rr2"]
 animations = [{
@@ -187,6 +188,20 @@ mouse_filter = 2
 position = Vector2(25.4696, 24.0497)
 scale = Vector2(0.0548661, 0.0548661)
 texture = ExtResource("11_0dwfv")
+
+[node name="IrisControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 17.7945
+offset_top = 21.1578
+offset_right = 57.7945
+offset_bottom = 61.1578
+scale = Vector2(0.103845, 0.36805)
+
+[node name="Iris" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/IrisControl"]
+position = Vector2(25.3413, 33.0925)
+scale = Vector2(-0.0374952, 0.0298343)
+texture = ExtResource("13_u8gaf")
 
 [node name="ShopControl" type="Control" parent="."]
 visible = false
