@@ -2,10 +2,11 @@ extends Node2D
 
 # variables
 var oxygen = 100 # starting value of o2, enough for first plant
-var totalProduction = 0 # o2 earned per second
+
+var greenhousePage = 1 #starting on first page of the greenhouse
 
 # daisy
-# max daisy level = 5
+# max daisy level = 5, daisy timer = 1sec
 var daisyLevel = 0
 var daisyProduction = 0
 var daisyMaxProduction = 10
@@ -25,9 +26,8 @@ func _process(delta):
 func UpdateUI():
 	$Background/O2Label.text = str(oxygen)
 	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyCost.text = str(daisyCost)
-	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyIncrement.text = "+" + str(daisyProduction)
+	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyIncrement.text = "+" + str(daisyProduction) + "/sec"
 	
-	totalProduction = daisyProduction
 
 
 
@@ -53,6 +53,7 @@ func _on_daisy_buy_button_button_down():
 			
 			if daisyLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy1.png")
+				$Plant1Timer.start()
 			if daisyLevel == 2:
 				$GreenhouseControl/VisiblePlantsControl/Plant1Control/Daisy.texture = load("res://Assets/daisy2.png")
 			if daisyLevel == 3:
@@ -71,11 +72,8 @@ func _on_daisy_buy_button_button_down():
 			UpdateUI()
 
 
-func _on_timer_timeout(): # for producing o2
-	
-	if daisyLevel > 0:
-		$GreenhouseControl/VisiblePlantsControl/Plant1Control/Plant1Bubbles.play()
-	
-	oxygen += totalProduction
+func _on_plant_1_timer_timeout():
+	$GreenhouseControl/VisiblePlantsControl/Plant1Control/Plant1Bubbles.play()
+	oxygen += daisyProduction
 	UpdateUI()
-	$Timer.start()
+	$Plant1Timer.start()
