@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=22 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
@@ -16,7 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://b2l1iqk3m8xv8" path="res://Assets/Pixelart/sunflower.png" id="11_0dwfv"]
 [ext_resource type="Texture2D" uid="uid://xk3pqwb4cjts" path="res://Assets/Pixelart/marigold.png" id="11_wgdma"]
 [ext_resource type="Texture2D" uid="uid://b4unbmrgt5vnd" path="res://Assets/Pixelart/greenhouse2.png" id="12_88iap"]
+[ext_resource type="Texture2D" uid="uid://bw0kbtnkh0x2f" path="res://Assets/Pixelart/alyssum.png" id="13_jtey4"]
 [ext_resource type="Texture2D" uid="uid://hwkq7wvejn4v" path="res://Assets/Pixelart/iris.png" id="13_u8gaf"]
+[ext_resource type="Texture2D" uid="uid://82u7tqd2cxkj" path="res://Assets/Pixelart/rose.png" id="14_8gw03"]
+[ext_resource type="Texture2D" uid="uid://g5r6eijusoip" path="res://Assets/Pixelart/perennial.png" id="15_ns8jh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7rr2"]
 animations = [{
@@ -189,19 +192,61 @@ position = Vector2(25.4696, 24.0497)
 scale = Vector2(0.0548661, 0.0548661)
 texture = ExtResource("11_0dwfv")
 
+[node name="AlyssumControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 6.42231
+offset_top = 18.2347
+offset_right = 46.4223
+offset_bottom = 58.2347
+scale = Vector2(0.145425, 0.45992)
+
+[node name="Alyssum" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/AlyssumControl"]
+position = Vector2(20.0347, 35.7131)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("13_jtey4")
+
 [node name="IrisControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
 clip_contents = true
 anchors_preset = 0
-offset_left = 17.7945
-offset_top = 21.1578
-offset_right = 57.7945
-offset_bottom = 61.1578
-scale = Vector2(0.103845, 0.36805)
+offset_left = 17.6379
+offset_top = 21.0186
+offset_right = 57.6379
+offset_bottom = 61.0186
+scale = Vector2(0.116376, 0.36805)
 
 [node name="Iris" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/IrisControl"]
-position = Vector2(25.3413, 33.0925)
+position = Vector2(20.7285, 33.2815)
 scale = Vector2(-0.0374952, 0.0298343)
 texture = ExtResource("13_u8gaf")
+
+[node name="PerennialControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 16.51
+offset_top = 17.8867
+offset_right = 56.51
+offset_bottom = 57.8867
+scale = Vector2(0.145425, 0.45992)
+
+[node name="Perennial" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/PerennialControl"]
+position = Vector2(18.311, 34.2)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("15_ns8jh")
+
+[node name="RoseControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 4.10401
+offset_top = 30.484
+offset_right = 44.104
+offset_bottom = 70.484
+scale = Vector2(0.145425, 0.45992)
+
+[node name="Rose" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/RoseControl"]
+position = Vector2(17.8803, 24.0609)
+scale = Vector2(-0.0772614, 0.0614756)
+texture = ExtResource("14_8gw03")
 
 [node name="ShopControl" type="Control" parent="."]
 visible = false
@@ -398,6 +443,7 @@ theme_override_font_sizes/font_size = 60
 text = "L.0"
 
 [node name="ShopButtonControl" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
