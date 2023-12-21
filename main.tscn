@@ -462,9 +462,6 @@ flat = true
 
 [node name="TulipTimer" type="Timer" parent="."]
 
-[node name="Plant2Timer" type="Timer" parent="."]
-wait_time = 60.0
-
 [node name="GardenControl" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -515,9 +512,7 @@ one_shot = true
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_down"]
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
 [connection signal="button_up" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_up"]
-[connection signal="timeout" from="TulipTimer" to="." method="_on_plant_1_timer_timeout"]
 [connection signal="timeout" from="TulipTimer" to="." method="_on_tulip_timer_timeout"]
-[connection signal="timeout" from="Plant2Timer" to="." method="_on_plant_2_timer_timeout"]
 [connection signal="input_event" from="GardenControl/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="AppleTimer" to="." method="_on_apple_timer_timeout"]
 [connection signal="timeout" from="AppleWait" to="." method="_on_apple_wait_timeout"]

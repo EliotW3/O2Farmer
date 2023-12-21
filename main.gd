@@ -48,6 +48,7 @@ func setGreenhouse():
 	$Background/DoorControl/RightButton.show()
 	$GreenhouseControl.show()
 	$GardenControl.hide()
+	$Background/LeftButton.hide()
 
 func setGarden():
 	$Background/DoorControl/RightButton.hide()
