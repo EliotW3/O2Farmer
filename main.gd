@@ -1,5 +1,25 @@
 extends Node2D
 
+var rng = RandomNumberGenerator.new()
+
+# new variables
+var coins = 0
+var o2 = 0
+
+var query_apple = false
+var appleTimer = 60 # 60 seconds for apples to grow
+var appleQuantity = 5 # number of apples grown on timer finish
+var appleValue = 10 # value of each apple
+
+@export var Apple : PackedScene
+
+var tulipCost = 100
+var tulipMaxProduction = 1000
+var tulipLevel = 0
+var tulipProduction = 0
+
+
+
 # variables
 var oxygen = 10000 # starting value of o2, enough for first plant
 
@@ -41,8 +61,17 @@ func UpdateUI():
 	$ShopControl/ShopBackground/ListControl/ListJadeControl/JadeLevelLabel.text = "L." + str(jadeLevel)
 	
 
+func setGreenhouse():
+	$Background.texture = load("res://Assets/Pixelart/greenhouse2.png")
+	$Background/DoorControl/RightButton.texture = load("res://Assets/Pixelart/greenhouse_door.png")
+	$GreenhouseControl.show()
+	$GardenControl.hide()
 
-
+func setGarden():
+	$Background/DoorControl/RightButton.hide()
+	$Background.texture = load("res://Assets/Pixelart/garden.png")
+	$GreenhouseControl.hide()
+	$GardenControl.show()
 
 func _on_close_shop_button_button_down():
 	$ShopControl.hide()
@@ -50,9 +79,13 @@ func _on_close_shop_button_button_down():
 
 
 func _on_shop_button_button_down():
-	$ShopControl.show()
-	$ShopButtonControl/ShopButton.hide()
+	$ShopButtonControl/ShopButton.icon = load("res://Assets/Pixelart/shop_button2.png")
+	
 
+func _on_shop_button_button_up():
+	$ShopControl.show()
+	$ShopButtonControl/ShopButton.icon = load("res://Assets/Pixelart/shop_button1.png")
+	$ShopButtonControl.hide()
 
 func _on_daisy_buy_button_button_down():
 	if daisyLevel < 60: # max daisy level = 60
@@ -134,3 +167,67 @@ func _on_plant_2_timer_timeout():
 	oxygen += jadeProduction
 	UpdateUI()
 	$Plant2Timer.start()
+
+
+func _on_right_button_button_up():
+	setGarden()
+
+
+func _on_apple_timer_timeout():
+	$GardenControl/Area2D/AppleTree.texture = load("res://Assets/Pixelart/appletree_grown.png")
+	query_apple = true
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton \
+	and query_apple == true \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.is_pressed():
+		ShakeTree()
+
+func ShakeTree():
+	# shake tree animation, start apples falling, and replace.
+	query_apple = false
+	$GardenControl/Area2D.hide()
+	$GardenControl/AppleAnimation.show()
+	$GardenControl/AppleAnimation.play()
+	DropApples()
+	
+	$AppleWait.start()
+	
+	
+
+
+func _on_apple_wait_timeout():
+	$GardenControl/Area2D.show()
+	$GardenControl/Area2D/AppleTree.texture = load("res://Assets/Pixelart/appletree_ungrown.png")
+	$GardenControl/AppleAnimation.hide()
+	$AppleTimer.start()
+	
+	
+func DropApples():
+	
+	# pick a random spot along the length of the tree, instantiate a new apple, have it fall and stop on a random spot within the range
+	
+	for n in range(0,appleQuantity):
+		var spawnPositionX = rng.randf_range(13, 33)
+		var endPositionX = spawnPositionX
+
+		
+		$GardenControl/Area2D/AppleMarker.position = Vector2(spawnPositionX,17.3)
+		
+		
+		
+		var apple = Apple.instantiate()
+
+		$GardenControl.add_child(apple)
+		
+		apple.collect.connect(appleCollected)
+		apple.transform = $GardenControl/Area2D/AppleMarker.transform
+		apple.scale = Vector2(0.049,0.049)
+
+func appleCollected():
+	coins += appleValue
+	$Background/CoinsLabel.text = str(coins)
+
+

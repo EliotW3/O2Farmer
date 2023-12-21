@@ -1,12 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=35 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
-[ext_resource type="Texture2D" uid="uid://d14tgm2vawu2n" path="res://Assets/shopButton.png" id="3_111wa"]
+[ext_resource type="PackedScene" uid="uid://co4u2r8cbm3k8" path="res://apple.tscn" id="2_0mrs6"]
 [ext_resource type="Texture2D" uid="uid://dsn6g2w5rcjl6" path="res://Assets/o2.png" id="3_d2jww"]
 [ext_resource type="Texture2D" uid="uid://d0pyq478tax5g" path="res://Assets/xButton2.png" id="4_cxgqm"]
 [ext_resource type="Texture2D" uid="uid://do2t7nwsw7rhd" path="res://Assets/emptyTray.png" id="4_ip2cq"]
 [ext_resource type="Texture2D" uid="uid://c68tn6dcu0f26" path="res://Assets/buyButton2.png" id="5_a2b3g"]
+[ext_resource type="Texture2D" uid="uid://cwc3ubrrdtjn" path="res://Assets/Pixelart/greenhouse_door.png" id="5_krc4w"]
 [ext_resource type="Texture2D" uid="uid://cnkpc7dlvrjt5" path="res://Assets/bubbles.png" id="5_o1l3w"]
 [ext_resource type="Texture2D" uid="uid://del8yvuqltsuk" path="res://Assets/bubbles2.png" id="6_c3lov"]
 [ext_resource type="Texture2D" uid="uid://bsfpqslhm2dvh" path="res://Assets/bubbles3.png" id="7_sbf1p"]
@@ -20,6 +21,16 @@
 [ext_resource type="Texture2D" uid="uid://hwkq7wvejn4v" path="res://Assets/Pixelart/iris.png" id="13_u8gaf"]
 [ext_resource type="Texture2D" uid="uid://82u7tqd2cxkj" path="res://Assets/Pixelart/rose.png" id="14_8gw03"]
 [ext_resource type="Texture2D" uid="uid://g5r6eijusoip" path="res://Assets/Pixelart/perennial.png" id="15_ns8jh"]
+[ext_resource type="Texture2D" uid="uid://eumdk817qnw0" path="res://Assets/Pixelart/azalea.png" id="16_1ifa1"]
+[ext_resource type="Texture2D" uid="uid://uxv7cy1lsyob" path="res://Assets/Pixelart/cornflower.png" id="18_0n8xp"]
+[ext_resource type="Texture2D" uid="uid://clcp0x56bhbjv" path="res://Assets/Pixelart/daffodils.png" id="19_u5p5o"]
+[ext_resource type="Texture2D" uid="uid://cpwbgi151yobl" path="res://Assets/Pixelart/geraniums.png" id="20_w7lfw"]
+[ext_resource type="Texture2D" uid="uid://c8jqgyspdaun6" path="res://Assets/Pixelart/daisy.png" id="21_i5a2c"]
+[ext_resource type="Texture2D" uid="uid://dsm1yhir8bw4m" path="res://Assets/Pixelart/appletree_ungrown.png" id="27_amns8"]
+[ext_resource type="Texture2D" uid="uid://cnrvvaeikx6tw" path="res://Assets/Pixelart/shop_button1.png" id="27_thm7p"]
+[ext_resource type="Texture2D" uid="uid://q57bxm5w1vhg" path="res://Assets/Pixelart/appletree_grown.png" id="28_mrojt"]
+[ext_resource type="Texture2D" uid="uid://bkdh0ccm36juu" path="res://Assets/Pixelart/appletree_shake1.png" id="29_gis25"]
+[ext_resource type="Texture2D" uid="uid://cc53fkyvlnj6a" path="res://Assets/Pixelart/appletree_shake2.png" id="30_dwh3a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g7rr2"]
 animations = [{
@@ -44,8 +55,37 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk478"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_mrojt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gis25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_dwh3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_gis25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_dwh3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_amns8")
+}],
+"loop": false,
+"name": &"shake",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p76gl"]
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2d5s0")
+Apple = ExtResource("2_0mrs6")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -71,6 +111,42 @@ theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 60
 text = "999999999999"
 
+[node name="LeftButton" type="Button" parent="Background"]
+visible = false
+offset_left = 0.462963
+offset_top = 8.70872
+offset_right = 8.46296
+offset_bottom = 16.7087
+scale = Vector2(0.508333, 1)
+
+[node name="DoorControl" type="Control" parent="Background"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 591.667
+offset_top = 132.778
+offset_right = 631.667
+offset_bottom = 172.778
+scale = Vector2(1.7627, 6.38412)
+mouse_filter = 2
+
+[node name="RightButton" type="Button" parent="Background/DoorControl"]
+offset_left = -337.866
+offset_top = -30.1965
+offset_right = 390.134
+offset_bottom = 489.804
+icon = ExtResource("5_krc4w")
+flat = true
+
+[node name="CoinsLabel" type="RichTextLabel" parent="Background"]
+clip_contents = false
+offset_left = 605.0
+offset_top = 10.0
+offset_right = 705.0
+offset_bottom = 60.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Coins"
+
 [node name="GreenhouseControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -78,32 +154,16 @@ offset_right = 1920.0
 offset_bottom = 1000.0
 mouse_filter = 2
 
-[node name="RightButton" type="Button" parent="GreenhouseControl"]
-visible = false
-layout_mode = 0
-offset_left = 35.0
-offset_top = 16.2162
-offset_right = 43.0
-offset_bottom = 24.2162
-scale = Vector2(0.484722, 1)
-
-[node name="LeftButton" type="Button" parent="GreenhouseControl"]
-visible = false
-layout_mode = 0
-offset_left = 0.833333
-offset_top = 15.6757
-offset_right = 8.83333
-offset_bottom = 23.6757
-scale = Vector2(0.508333, 1)
-
 [node name="VisiblePlantsControl" type="Control" parent="GreenhouseControl"]
 anchors_preset = 0
 offset_left = 8.0
 offset_right = 48.0
 offset_bottom = 50.0
 scale = Vector2(31.92, 14.3682)
+mouse_filter = 2
 
 [node name="Plant1Control" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+visible = false
 clip_contents = true
 anchors_preset = 0
 offset_left = 10.0251
@@ -156,6 +216,7 @@ offset_top = 23.9417
 offset_right = 46.8922
 offset_bottom = 63.9417
 scale = Vector2(0.0945996, 0.311202)
+mouse_filter = 2
 
 [node name="Marigold" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/MarigoldControl"]
 position = Vector2(10.9285, 31.981)
@@ -195,14 +256,15 @@ texture = ExtResource("11_0dwfv")
 [node name="AlyssumControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
 clip_contents = true
 anchors_preset = 0
-offset_left = 6.42231
-offset_top = 18.2347
-offset_right = 46.4223
-offset_bottom = 58.2347
+offset_left = 6.35965
+offset_top = 18.5827
+offset_right = 46.3596
+offset_bottom = 58.5827
 scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
 
 [node name="Alyssum" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/AlyssumControl"]
-position = Vector2(20.0347, 35.7131)
+position = Vector2(19.6038, 33.5945)
 scale = Vector2(-0.0255592, 0.020337)
 texture = ExtResource("13_jtey4")
 
@@ -214,25 +276,12 @@ offset_top = 21.0186
 offset_right = 57.6379
 offset_bottom = 61.0186
 scale = Vector2(0.116376, 0.36805)
+mouse_filter = 2
 
 [node name="Iris" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/IrisControl"]
 position = Vector2(20.7285, 33.2815)
 scale = Vector2(-0.0374952, 0.0298343)
 texture = ExtResource("13_u8gaf")
-
-[node name="PerennialControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
-clip_contents = true
-anchors_preset = 0
-offset_left = 16.51
-offset_top = 17.8867
-offset_right = 56.51
-offset_bottom = 57.8867
-scale = Vector2(0.145425, 0.45992)
-
-[node name="Perennial" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/PerennialControl"]
-position = Vector2(18.311, 34.2)
-scale = Vector2(-0.0255592, 0.020337)
-texture = ExtResource("15_ns8jh")
 
 [node name="RoseControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
 clip_contents = true
@@ -242,11 +291,103 @@ offset_top = 30.484
 offset_right = 44.104
 offset_bottom = 70.484
 scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
 
 [node name="Rose" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/RoseControl"]
 position = Vector2(17.8803, 24.0609)
 scale = Vector2(-0.0772614, 0.0614756)
 texture = ExtResource("14_8gw03")
+
+[node name="AzaleaControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.88471
+offset_top = 40.2277
+offset_right = 43.8848
+offset_bottom = 80.2277
+scale = Vector2(0.117324, 0.235184)
+mouse_filter = 2
+
+[node name="Azalea" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/AzaleaControl"]
+position = Vector2(14.6863, 25.1541)
+scale = Vector2(0.0600772, 0.0600772)
+texture = ExtResource("16_1ifa1")
+
+[node name="PerennialControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 16.51
+offset_top = 17.8867
+offset_right = 56.51
+offset_bottom = 57.8867
+scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
+
+[node name="Perennial" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/PerennialControl"]
+position = Vector2(18.311, 34.2)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("15_ns8jh")
+
+[node name="CornflowerControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 12.406
+offset_top = 17.6779
+offset_right = 52.406
+offset_bottom = 57.6779
+scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
+
+[node name="Cornflower" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/CornflowerControl"]
+position = Vector2(31.4521, 34.9563)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("18_0n8xp")
+
+[node name="DaffodilControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 12.406
+offset_top = 17.6779
+offset_right = 52.406
+offset_bottom = 57.6779
+scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
+
+[node name="Daffodil" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/DaffodilControl"]
+position = Vector2(17.0186, 34.9563)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("19_u5p5o")
+
+[node name="GeraniumControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 12.406
+offset_top = 17.6779
+offset_right = 52.406
+offset_bottom = 57.6779
+scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
+
+[node name="Geranium" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/GeraniumControl"]
+position = Vector2(23.6968, 34.9563)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("20_w7lfw")
+
+[node name="DaisyControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 13.9098
+offset_top = 17.8171
+offset_right = 53.9098
+offset_bottom = 57.8171
+scale = Vector2(0.145425, 0.45992)
+mouse_filter = 2
+
+[node name="Daisy" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/DaisyControl"]
+position = Vector2(25.4204, 34.3513)
+scale = Vector2(-0.0255592, 0.020337)
+texture = ExtResource("21_i5a2c")
 
 [node name="ShopControl" type="Control" parent="."]
 visible = false
@@ -443,7 +584,6 @@ theme_override_font_sizes/font_size = 60
 text = "L.0"
 
 [node name="ShopButtonControl" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -456,11 +596,12 @@ mouse_filter = 2
 
 [node name="ShopButton" type="Button" parent="ShopButtonControl"]
 layout_mode = 0
-offset_left = 574.998
-offset_right = 1195.0
-offset_bottom = 328.0
+offset_left = 934.372
+offset_top = -4.72974
+offset_right = 1554.37
+offset_bottom = 515.27
 scale = Vector2(1, 0.166667)
-icon = ExtResource("3_111wa")
+icon = ExtResource("27_thm7p")
 flat = true
 
 [node name="Plant1Timer" type="Timer" parent="."]
@@ -468,9 +609,58 @@ flat = true
 [node name="Plant2Timer" type="Timer" parent="."]
 wait_time = 60.0
 
+[node name="GardenControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(32.52, 17.92)
+mouse_filter = 2
+
+[node name="AppleAnimation" type="AnimatedSprite2D" parent="GardenControl"]
+visible = false
+position = Vector2(25, 17)
+scale = Vector2(0.049, 0.049)
+sprite_frames = SubResource("SpriteFrames_kk478")
+animation = &"shake"
+frame = 5
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="GardenControl"]
+
+[node name="AppleTree" type="Sprite2D" parent="GardenControl/Area2D"]
+position = Vector2(25, 17)
+scale = Vector2(0.0487274, 0.0487274)
+texture = ExtResource("27_amns8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GardenControl/Area2D"]
+position = Vector2(23.5855, 18.8058)
+shape = SubResource("RectangleShape2D_p76gl")
+
+[node name="AppleMarker" type="Marker2D" parent="GardenControl/Area2D"]
+position = Vector2(23.5547, 17.2991)
+
+[node name="AppleEndMarker" type="Marker2D" parent="GardenControl/Area2D"]
+position = Vector2(23.5547, 17.2991)
+
+[node name="AppleTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AppleWait" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="button_up" from="Background/DoorControl/RightButton" to="." method="_on_right_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton" to="." method="_on_daisy_buy_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListJadeControl/JadeBuyButtonControl/JadeBuyButton" to="." method="_on_jade_buy_button_button_down"]
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
+[connection signal="button_up" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_up"]
 [connection signal="timeout" from="Plant1Timer" to="." method="_on_plant_1_timer_timeout"]
 [connection signal="timeout" from="Plant2Timer" to="." method="_on_plant_2_timer_timeout"]
+[connection signal="input_event" from="GardenControl/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="AppleTimer" to="." method="_on_apple_timer_timeout"]
+[connection signal="timeout" from="AppleWait" to="." method="_on_apple_wait_timeout"]
