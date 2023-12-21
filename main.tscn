@@ -1,10 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=30 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
 [ext_resource type="PackedScene" uid="uid://co4u2r8cbm3k8" path="res://apple.tscn" id="2_0mrs6"]
-[ext_resource type="Texture2D" uid="uid://d0pyq478tax5g" path="res://Assets/xButton2.png" id="4_cxgqm"]
-[ext_resource type="Texture2D" uid="uid://cnodfgjy7bk6u" path="res://Assets/Pixelart/arrow_button1.png" id="4_fu7m2"]
 [ext_resource type="Texture2D" uid="uid://c68tn6dcu0f26" path="res://Assets/buyButton2.png" id="5_a2b3g"]
 [ext_resource type="Texture2D" uid="uid://cwc3ubrrdtjn" path="res://Assets/Pixelart/greenhouse_door.png" id="5_krc4w"]
 [ext_resource type="Texture2D" uid="uid://tumsyuymfu1p" path="res://Assets/maxButton.png" id="10_mb542"]
@@ -18,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://g5r6eijusoip" path="res://Assets/Pixelart/perennial.png" id="15_ns8jh"]
 [ext_resource type="Texture2D" uid="uid://eumdk817qnw0" path="res://Assets/Pixelart/azalea.png" id="16_1ifa1"]
 [ext_resource type="Texture2D" uid="uid://uxv7cy1lsyob" path="res://Assets/Pixelart/cornflower.png" id="18_0n8xp"]
+[ext_resource type="Texture2D" uid="uid://cbbls6ivu485" path="res://Assets/Pixelart/ImportUI/UIpackSheet_transparent.png" id="18_5xfnt"]
 [ext_resource type="Texture2D" uid="uid://clcp0x56bhbjv" path="res://Assets/Pixelart/daffodils.png" id="19_u5p5o"]
 [ext_resource type="Texture2D" uid="uid://cpwbgi151yobl" path="res://Assets/Pixelart/geraniums.png" id="20_w7lfw"]
 [ext_resource type="Texture2D" uid="uid://c8jqgyspdaun6" path="res://Assets/Pixelart/daisy.png" id="21_i5a2c"]
@@ -26,6 +25,14 @@
 [ext_resource type="Texture2D" uid="uid://q57bxm5w1vhg" path="res://Assets/Pixelart/appletree_grown.png" id="28_mrojt"]
 [ext_resource type="Texture2D" uid="uid://bkdh0ccm36juu" path="res://Assets/Pixelart/appletree_shake1.png" id="29_gis25"]
 [ext_resource type="Texture2D" uid="uid://cc53fkyvlnj6a" path="res://Assets/Pixelart/appletree_shake2.png" id="30_dwh3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kappm"]
+atlas = ExtResource("18_5xfnt")
+region = Rect2(288, 432, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bemtv"]
+atlas = ExtResource("18_5xfnt")
+region = Rect2(162, 108, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kk478"]
 animations = [{
@@ -65,16 +72,6 @@ scale = Vector2(1.8, 1.8)
 texture = ExtResource("12_88iap")
 centered = false
 
-[node name="LeftButton" type="Button" parent="Background"]
-visible = false
-offset_left = 97.7778
-offset_top = 190.0
-offset_right = 617.778
-offset_bottom = 710.0
-scale = Vector2(-0.212517, 0.0819073)
-icon = ExtResource("4_fu7m2")
-flat = true
-
 [node name="DoorControl" type="Control" parent="Background"]
 clip_contents = true
 layout_mode = 3
@@ -111,6 +108,27 @@ offset_right = 702.222
 offset_bottom = 89.4444
 theme_override_font_sizes/normal_font_size = 30
 text = "O2"
+
+[node name="LeftControl" type="Control" parent="Background"]
+visible = false
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 18.8889
+offset_top = 184.444
+offset_right = 58.8889
+offset_bottom = 224.444
+scale = Vector2(1.50605, 0.681508)
+mouse_filter = 2
+
+[node name="LeftButton" type="Button" parent="Background/LeftControl"]
+offset_left = -8.85318
+offset_top = 396.18
+offset_right = 511.147
+offset_bottom = 916.18
+scale = Vector2(2.4, -1.449)
+icon = SubResource("AtlasTexture_kappm")
+flat = true
 
 [node name="GreenhouseControl" type="Control" parent="."]
 layout_mode = 3
@@ -345,13 +363,12 @@ mouse_filter = 2
 
 [node name="CloseShopButton" type="Button" parent="ShopControl/ShopBackground/CloseShopControl"]
 clip_contents = true
-layout_mode = 0
-offset_left = 3.92163
-offset_top = -7.69231
-offset_right = 1305.92
-offset_bottom = 1295.31
-scale = Vector2(0.0831367, 0.0831367)
-icon = ExtResource("4_cxgqm")
+offset_left = 10.7843
+offset_top = -699.519
+offset_right = 1314.24
+offset_bottom = 603.483
+scale = Vector2(1.1, 1.1)
+icon = SubResource("AtlasTexture_bemtv")
 flat = true
 
 [node name="ListControl" type="Control" parent="ShopControl/ShopBackground"]
@@ -506,8 +523,8 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
-[connection signal="button_down" from="Background/LeftButton" to="." method="_on_left_button_button_down"]
 [connection signal="button_up" from="Background/DoorControl/RightButton" to="." method="_on_right_button_button_up"]
+[connection signal="button_down" from="Background/LeftControl/LeftButton" to="." method="_on_left_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_down"]
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]

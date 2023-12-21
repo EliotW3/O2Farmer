@@ -48,18 +48,18 @@ func setGreenhouse():
 	$Background/DoorControl/RightButton.show()
 	$GreenhouseControl.show()
 	$GardenControl.hide()
-	$Background/LeftButton.hide()
+	$Background/LeftControl.hide()
 
 func setGarden():
 	$Background/DoorControl/RightButton.hide()
 	$Background.texture = load("res://Assets/Pixelart/garden.png")
 	$GreenhouseControl.hide()
 	$GardenControl.show()
-	$Background/LeftButton.show()
+	$Background/LeftControl.show()
 
 func _on_close_shop_button_button_down():
 	$ShopControl.hide()
-	$ShopButtonControl/ShopButton.show()
+	$ShopButtonControl.show()
 
 
 func _on_shop_button_button_down():
