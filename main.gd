@@ -178,43 +178,22 @@ func setGarden():
 	greenhousePage = 2
 
 func _on_close_shop_button_button_down():
-	$ShopControl.hide()
-	$ShopButtonControl.show()
+	$ShopControl/ShopBackground/CloseShopControl/CloseShopButton.icon = load("res://Assets/Pixelart/Buttons/x_button2.png")
+	
 
 
 func _on_shop_button_button_down():
-	$ShopButtonControl/ShopButton.icon = load("res://Assets/Pixelart/shop_button2.png")
+	$ShopButtonControl/ShopButton.icon = load("res://Assets/Pixelart/Buttons/shop_button2.png")
 	
 
 func _on_shop_button_button_up():
 	$ShopControl.show()
-	$ShopButtonControl/ShopButton.icon = load("res://Assets/Pixelart/shop_button1.png")
+	$ShopButtonControl/ShopButton.icon = load("res://Assets/Pixelart/Buttons/shop_button.png")
 	$ShopButtonControl.hide()
 
 func _on_tulip_buy_button_button_down():
-	if tulipLevel < 100: # max tulip level = 100
-		# increment tulip level, increase production, increase tulip price, remove oxygen
-		if tulipCost <= coins:
-			# purchase allowed
-			coins = coins - tulipCost
-			tulipLevel += 1
-			tulipProduction += (tulipMaxProduction/100)
-			
-			if tulipLevel == 1:
-				$GreenhouseControl/VisiblePlantsControl/TulipControl.show()
-				$TulipTimer.start()
-				
-				
-			
-			if tulipLevel == 100:
-				# change button for buy tulip to say max.
-				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipMax.show()
-				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipLevelLabel.hide()
-								
-			tulipCost = int(tulipCost * 1.1)
-			
-			UpdateUI()
+	$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton.icon = load("res://Assets/buy_button.png")
+	
 
 
 
@@ -686,12 +665,13 @@ func _on_compost_buy_button_button_down():
 
 
 func _on_shop_button_2_button_down():
+	$ShopButtonControl2/ShopButton2.icon = load("res://Assets/Pixelart/Buttons/shop_button2.png")
+
+func _on_shop_button_2_button_up():
+	$ShopButtonControl2/ShopButton2.icon = load("res://Assets/Pixelart/Buttons/shop_button.png")
 	$ShopControl2.show()
 	$ShopButtonControl2.hide()
 
-func _on_close_shop_button_2_button_down():
-	$ShopControl2.hide()
-	$ShopButtonControl2.show()
 
 # function to make the door pop out and be highlighted when hovered over
 func _on_right_button_mouse_entered():
@@ -701,3 +681,50 @@ func _on_right_button_mouse_entered():
 
 func _on_right_button_mouse_exited():
 	$Background/DoorControl/RightButton.icon = load("res://Assets/Pixelart/greenhouse_door.png")
+
+
+func _on_close_shop_button_button_up():
+	$ShopControl/ShopBackground/CloseShopControl/CloseShopButton.icon = load("res://Assets/Pixelart/Buttons/x_button1.png")
+	$ShopControl.hide()
+	$ShopButtonControl.show()
+
+func _on_close_shop_button_2_button_down():
+	$ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2.icon = load("res://Assets/Pixelart/Buttons/x_button2.png")
+	
+
+
+func _on_close_shop_button_2_button_up():
+	
+	$ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2.icon = load("res://Assets/Pixelart/Buttons/x_button1.png")
+	$ShopControl2.hide()
+	$ShopButtonControl2.show()
+
+
+
+
+
+func _on_tulip_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton.icon = load("res://Assets/buy_button2.png")
+	if tulipLevel < 100: # max tulip level = 100
+		# increment tulip level, increase production, increase tulip price, remove oxygen
+		if tulipCost <= coins:
+			# purchase allowed
+			coins = coins - tulipCost
+			tulipLevel += 1
+			tulipProduction += (tulipMaxProduction/100)
+			
+			if tulipLevel == 1:
+				$GreenhouseControl/VisiblePlantsControl/TulipControl.show()
+				$TulipTimer.start()
+				
+				
+			
+			if tulipLevel == 100:
+				# change button for buy tulip to say max.
+				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl.hide()
+				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipMax.show()
+				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipLevelLabel.hide()
+								
+			tulipCost = int(tulipCost * 1.1)
+			
+			UpdateUI()

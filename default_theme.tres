@@ -1,5 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://cgg3diq50tr2n"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cgg3diq50tr2n"]
+
+[ext_resource type="FontFile" uid="uid://btdrxjyx6njvc" path="res://Assets/Fonts/fonts/ttf/Micro5-Regular.ttf" id="1_h603e"]
 
 [resource]
 default_font_size = 0
 HScrollBar/icons/decrement = null
+Label/fonts/font = ExtResource("1_h603e")

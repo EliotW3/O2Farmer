@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=32 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
@@ -17,11 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://eumdk817qnw0" path="res://Assets/Pixelart/azalea.png" id="16_1ifa1"]
 [ext_resource type="Texture2D" uid="uid://uxv7cy1lsyob" path="res://Assets/Pixelart/cornflower.png" id="18_0n8xp"]
 [ext_resource type="Texture2D" uid="uid://cbbls6ivu485" path="res://Assets/Pixelart/ImportUI/UIpackSheet_transparent.png" id="18_5xfnt"]
+[ext_resource type="Texture2D" uid="uid://cdt3mdej3hr1c" path="res://Assets/Pixelart/Buttons/x_button1.png" id="18_ndaik"]
 [ext_resource type="Texture2D" uid="uid://clcp0x56bhbjv" path="res://Assets/Pixelart/daffodils.png" id="19_u5p5o"]
 [ext_resource type="Texture2D" uid="uid://cpwbgi151yobl" path="res://Assets/Pixelart/geraniums.png" id="20_w7lfw"]
 [ext_resource type="Texture2D" uid="uid://c8jqgyspdaun6" path="res://Assets/Pixelart/daisy.png" id="21_i5a2c"]
+[ext_resource type="Texture2D" uid="uid://b1yci0afas2r8" path="res://Assets/buy_button2.png" id="21_o84cp"]
+[ext_resource type="Texture2D" uid="uid://bvgpwpy14ir05" path="res://Assets/Pixelart/Buttons/shop_button.png" id="22_mhxx7"]
 [ext_resource type="Texture2D" uid="uid://dsm1yhir8bw4m" path="res://Assets/Pixelart/appletree_ungrown.png" id="27_amns8"]
-[ext_resource type="Texture2D" uid="uid://cnrvvaeikx6tw" path="res://Assets/Pixelart/shop_button1.png" id="27_thm7p"]
 [ext_resource type="Texture2D" uid="uid://q57bxm5w1vhg" path="res://Assets/Pixelart/appletree_grown.png" id="28_mrojt"]
 [ext_resource type="Texture2D" uid="uid://bkdh0ccm36juu" path="res://Assets/Pixelart/appletree_shake1.png" id="29_gis25"]
 [ext_resource type="Texture2D" uid="uid://cc53fkyvlnj6a" path="res://Assets/Pixelart/appletree_shake2.png" id="30_dwh3a"]
@@ -31,8 +33,8 @@ atlas = ExtResource("18_5xfnt")
 region = Rect2(288, 432, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bemtv"]
-atlas = ExtResource("18_5xfnt")
-region = Rect2(162, 108, 16, 16)
+atlas = ExtResource("18_ndaik")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kk478"]
 animations = [{
@@ -82,6 +84,7 @@ offset_right = 611.111
 offset_bottom = 138.333
 scale = Vector2(2.60714, 8.00634)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="RightButton" type="Button" parent="Background/DoorControl"]
 layout_mode = 0
@@ -93,6 +96,7 @@ scale = Vector2(0.443282, 0.127668)
 pivot_offset = Vector2(-0.06, 0)
 icon = ExtResource("5_krc4w")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="CoinsLabel" type="RichTextLabel" parent="Background"]
 clip_contents = false
@@ -102,6 +106,7 @@ offset_right = 705.0
 offset_bottom = 60.0
 theme_override_font_sizes/normal_font_size = 30
 text = "Coins"
+metadata/_edit_use_anchors_ = true
 
 [node name="O2Label" type="RichTextLabel" parent="Background"]
 clip_contents = false
@@ -111,6 +116,7 @@ offset_right = 702.222
 offset_bottom = 89.4444
 theme_override_font_sizes/normal_font_size = 30
 text = "O2"
+metadata/_edit_use_anchors_ = true
 
 [node name="LeftControl" type="Control" parent="Background"]
 visible = false
@@ -140,6 +146,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1000.0
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="VisiblePlantsControl" type="Control" parent="GreenhouseControl"]
 anchors_preset = 0
@@ -343,17 +350,19 @@ scale = Vector2(-0.0255592, 0.020337)
 texture = ExtResource("21_i5a2c")
 
 [node name="ShopControl" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+theme = ExtResource("1_10pbt")
+metadata/_edit_use_anchors_ = true
 
 [node name="ShopBackground" type="Panel" parent="ShopControl"]
 layout_mode = 0
 offset_right = 600.0
 offset_bottom = 720.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CloseShopControl" type="Control" parent="ShopControl/ShopBackground"]
 clip_contents = true
@@ -364,17 +373,19 @@ offset_right = 552.0
 offset_bottom = 48.0
 scale = Vector2(2.04, 2.08)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CloseShopButton" type="Button" parent="ShopControl/ShopBackground/CloseShopControl"]
 clip_contents = true
 layout_mode = 0
 offset_left = 10.7843
-offset_top = -699.519
+offset_top = -445.192
 offset_right = 1314.24
-offset_bottom = 603.483
-scale = Vector2(1.1, 1.1)
+offset_bottom = 857.81
+scale = Vector2(0.704073, 0.704073)
 icon = SubResource("AtlasTexture_bemtv")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ListControl" type="Control" parent="ShopControl/ShopBackground"]
 anchors_preset = 0
@@ -384,16 +395,17 @@ offset_right = 72.0
 offset_bottom = 120.0
 scale = Vector2(13.28, 23.72)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ListTulipControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
-clip_contents = true
 anchors_preset = 0
 offset_left = 0.903615
 offset_top = -2.2344
 offset_right = 40.9036
 offset_bottom = 37.7655
-scale = Vector2(0.51093, 0.0603122)
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
 layout_mode = 0
@@ -405,6 +417,7 @@ theme = ExtResource("1_10pbt")
 theme_override_font_sizes/font_size = 60
 text = "Tulip
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
 layout_mode = 0
@@ -413,8 +426,10 @@ offset_top = 20.0
 offset_right = 121.205
 offset_bottom = 106.0
 scale = Vector2(0.0451807, 0.141052)
+theme = ExtResource("1_10pbt")
 theme_override_font_sizes/font_size = 60
 text = "cost"
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
 layout_mode = 0
@@ -425,6 +440,7 @@ offset_bottom = 50.7143
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
 visible = false
@@ -433,24 +449,25 @@ scale = Vector2(0.00765634, 0.0214865)
 texture = ExtResource("10_mb542")
 
 [node name="TulipBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
-clip_contents = true
 anchors_preset = 0
-offset_left = 26.506
-offset_top = 5.71428
-offset_right = 66.506
-offset_bottom = 45.7143
+offset_left = 54.8256
+offset_top = 9.08704
+offset_right = 94.8256
+offset_bottom = 49.0871
 scale = Vector2(0.363078, 0.585714)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl"]
 layout_mode = 0
-offset_left = -23.2284
-offset_top = -19.5122
-offset_right = 1278.77
-offset_bottom = 1283.49
-scale = Vector2(0.0529466, 0.11913)
-icon = ExtResource("5_a2b3g")
+offset_left = -6.90065
+offset_top = -1076.47
+offset_right = 1295.1
+offset_bottom = 226.534
+scale = Vector2(0.740233, 1.66553)
+icon = ExtResource("21_o84cp")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
 layout_mode = 0
@@ -461,6 +478,7 @@ offset_bottom = 111.714
 scale = Vector2(0.0301205, 0.107043)
 theme_override_font_sizes/font_size = 60
 text = "L.0"
+metadata/_edit_use_anchors_ = true
 
 [node name="ListIrisControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
 clip_contents = true
@@ -469,8 +487,9 @@ offset_left = 1.43072
 offset_top = 0.421577
 offset_right = 41.4307
 offset_bottom = 40.4215
-scale = Vector2(0.468762, 0.0553345)
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="IrisTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
 layout_mode = 0
@@ -544,10 +563,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 1.20482
 offset_top = 2.23441
-offset_right = 41.2048
-offset_bottom = 42.2343
-scale = Vector2(0.625388, 0.0493394)
+offset_right = 81.2048
+offset_bottom = 42.2344
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="SunflowerTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
 layout_mode = 0
@@ -572,10 +592,10 @@ text = "cost"
 
 [node name="SunflowerIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 33.4337
+offset_top = 2.81041
+offset_right = 165.434
+offset_bottom = 47.8104
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -621,10 +641,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 0.753012
 offset_top = 4.04724
-offset_right = 40.753
+offset_right = 80.753
 offset_bottom = 44.0472
-scale = Vector2(0.3784, 0.0298535)
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="MarigoldTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
 layout_mode = 0
@@ -648,10 +669,10 @@ text = "cost"
 
 [node name="MarigoldIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 31.0241
+offset_top = 4.91812
+offset_right = 163.024
+offset_bottom = 49.9182
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -697,10 +718,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 0.677711
 offset_top = 5.52277
-offset_right = 40.6777
-offset_bottom = 45.5227
-scale = Vector2(0.532015, 0.0419728)
+offset_right = 80.6777
+offset_bottom = 45.5228
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="AzaleaTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
 layout_mode = 0
@@ -725,10 +747,10 @@ text = "cost"
 
 [node name="AzaleaIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 30.2711
+offset_top = 4.21579
+offset_right = 162.271
+offset_bottom = 49.2158
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -774,10 +796,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 0.753012
 offset_top = 7.9258
-offset_right = 40.753
-offset_bottom = 47.9257
-scale = Vector2(0.803099, 0.0633597)
+offset_right = 80.753
+offset_bottom = 47.9258
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="DaisyTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
 layout_mode = 0
@@ -850,10 +873,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 0.753012
 offset_top = 9.82294
-offset_right = 40.753
+offset_right = 80.753
 offset_bottom = 49.8229
-scale = Vector2(0.772978, 0.0609834)
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="DaffodilsTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
 layout_mode = 0
@@ -877,10 +901,10 @@ text = "cost"
 
 [node name="DaffodilsIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 30.4217
+offset_top = 6.32367
+offset_right = 162.422
+offset_bottom = 51.3237
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -926,10 +950,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 0.527108
 offset_top = 11.7622
-offset_right = 40.5271
-offset_bottom = 51.7621
-scale = Vector2(0.827195, 0.0652608)
+offset_right = 80.5271
+offset_bottom = 51.7622
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="AlyssumTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
 layout_mode = 0
@@ -953,10 +978,10 @@ text = "cost"
 
 [node name="AlyssumIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 30.1205
+offset_top = 4.21628
+offset_right = 162.12
+offset_bottom = 49.2163
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -1002,10 +1027,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 1.05422
 offset_top = 14.3339
-offset_right = 41.0542
-offset_bottom = 54.3338
-scale = Vector2(0.74587, 0.0588447)
+offset_right = 81.0542
+offset_bottom = 54.3339
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="GeraniumTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
 layout_mode = 0
@@ -1029,10 +1055,10 @@ text = "cost"
 
 [node name="GeraniumIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 29.6686
+offset_top = 3.51306
+offset_right = 161.669
+offset_bottom = 48.5131
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -1078,10 +1104,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 1.35542
 offset_top = 16.3575
-offset_right = 41.3554
-offset_bottom = 56.3574
-scale = Vector2(0.71575, 0.0564684)
+offset_right = 81.3554
+offset_bottom = 56.3575
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="PerennialTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
 layout_mode = 0
@@ -1106,10 +1133,10 @@ text = "cost"
 
 [node name="PerennialIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 29.9699
+offset_top = 3.51324
+offset_right = 161.97
+offset_bottom = 48.5133
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -1155,10 +1182,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 1.12952
 offset_top = 18.086
-offset_right = 41.1295
-offset_bottom = 58.0859
-scale = Vector2(0.718762, 0.056706)
+offset_right = 81.1295
+offset_bottom = 58.086
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CornflowerTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
 layout_mode = 0
@@ -1182,10 +1210,10 @@ text = "cost"
 
 [node name="CornflowerIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
 layout_mode = 0
-offset_left = 18.2982
-offset_top = 5.71426
-offset_right = 145.298
-offset_bottom = 50.7143
+offset_left = 36.1446
+offset_top = 5.62122
+offset_right = 168.145
+offset_bottom = 50.6213
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
@@ -1231,10 +1259,11 @@ clip_contents = true
 anchors_preset = 0
 offset_left = 0.60241
 offset_top = 20.2783
-offset_right = 40.6024
-offset_bottom = 60.2782
-scale = Vector2(0.836231, 0.0659737)
+offset_right = 80.6024
+offset_bottom = 60.2783
+scale = Vector2(0.5, 0.06)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="RoseTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
 layout_mode = 0
@@ -1246,6 +1275,7 @@ theme = ExtResource("1_10pbt")
 theme_override_font_sizes/font_size = 60
 text = "Rose
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="RoseCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
 layout_mode = 0
@@ -1256,6 +1286,7 @@ offset_bottom = 106.0
 scale = Vector2(0.0451807, 0.141052)
 theme_override_font_sizes/font_size = 60
 text = "cost"
+metadata/_edit_use_anchors_ = true
 
 [node name="RoseIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
 layout_mode = 0
@@ -1266,6 +1297,7 @@ offset_bottom = 50.7143
 scale = Vector2(0.069277, 0.344719)
 theme_override_font_sizes/font_size = 30
 text = "+100/sec"
+metadata/_edit_use_anchors_ = true
 
 [node name="RoseMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
 visible = false
@@ -1282,6 +1314,7 @@ offset_right = 66.506
 offset_bottom = 45.7143
 scale = Vector2(0.363078, 0.585714)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="RoseBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl"]
 layout_mode = 0
@@ -1292,6 +1325,7 @@ offset_bottom = 1283.49
 scale = Vector2(0.0529466, 0.11913)
 icon = ExtResource("5_a2b3g")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="RoseLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
 layout_mode = 0
@@ -1302,9 +1336,9 @@ offset_bottom = 111.714
 scale = Vector2(0.0301205, 0.107043)
 theme_override_font_sizes/font_size = 60
 text = "L.0"
+metadata/_edit_use_anchors_ = true
 
 [node name="ShopControl2" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 695.0
@@ -1312,6 +1346,7 @@ offset_top = 1.0
 offset_right = 735.0
 offset_bottom = 41.0
 mouse_filter = 2
+theme = ExtResource("1_10pbt")
 
 [node name="ShopBackground2" type="Panel" parent="ShopControl2"]
 layout_mode = 0
@@ -1332,11 +1367,11 @@ mouse_filter = 2
 [node name="CloseShopButton2" type="Button" parent="ShopControl2/ShopBackground2/CloseShopControl2"]
 clip_contents = true
 layout_mode = 0
-offset_left = 10.7843
-offset_top = -699.519
-offset_right = 1314.24
-offset_bottom = 603.483
-scale = Vector2(1.1, 1.1)
+offset_left = 11.2745
+offset_top = -440.385
+offset_right = 1314.73
+offset_bottom = 862.617
+scale = Vector2(0.704, 0.704)
 icon = SubResource("AtlasTexture_bemtv")
 flat = true
 
@@ -1352,10 +1387,10 @@ mouse_filter = 2
 [node name="ListCompostControl" type="Control" parent="ShopControl2/ShopBackground2/ListControl2"]
 clip_contents = true
 anchors_preset = 0
-offset_left = 0.903615
-offset_top = -2.2344
-offset_right = 40.9036
-offset_bottom = 37.7655
+offset_left = 2.78614
+offset_top = -1.34907
+offset_right = 72.7861
+offset_bottom = 38.6509
 scale = Vector2(0.51093, 0.0603122)
 mouse_filter = 2
 
@@ -1379,16 +1414,6 @@ offset_bottom = 106.0
 scale = Vector2(0.0451807, 0.141052)
 theme_override_font_sizes/font_size = 60
 text = "cost"
-
-[node name="CompostIncrement" type="Label" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
-layout_mode = 0
-offset_left = 16.5066
-offset_top = 18.8731
-offset_right = 167.507
-offset_bottom = 63.8732
-scale = Vector2(0.069277, 0.344719)
-theme_override_font_sizes/font_size = 30
-text = "value * 1.5"
 
 [node name="CompostMax" type="Sprite2D" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
 visible = false
@@ -1430,44 +1455,47 @@ text = "L.0"
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -40.0
-offset_top = 632.0
-offset_right = 1880.0
-offset_bottom = 712.0
-scale = Vector2(0.320001, 1.48)
+offset_left = 202.0
+offset_top = 654.0
+offset_right = 2122.0
+offset_bottom = 734.0
+scale = Vector2(0.0981787, 0.765184)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ShopButton" type="Button" parent="ShopButtonControl"]
 layout_mode = 0
-offset_left = 934.372
-offset_top = -4.72974
-offset_right = 1554.37
-offset_bottom = 515.27
-scale = Vector2(1, 0.166667)
-icon = ExtResource("27_thm7p")
+offset_left = 12.2849
+offset_top = -591.086
+offset_right = 632.283
+offset_bottom = -71.0862
+scale = Vector2(24.6152, 2.43834)
+icon = ExtResource("22_mhxx7")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ShopButtonControl2" type="Control" parent="."]
-visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 624.0
-offset_top = 628.0
-offset_right = 2544.0
-offset_bottom = 708.0
-scale = Vector2(0.320001, 1.48)
+offset_left = 918.0
+offset_top = 639.0
+offset_right = 2838.0
+offset_bottom = 719.0
+scale = Vector2(0.0980756, 1.0163)
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ShopButton2" type="Button" parent="ShopButtonControl2"]
 layout_mode = 0
-offset_left = 934.372
-offset_top = -4.72974
-offset_right = 1554.37
-offset_bottom = 515.27
-scale = Vector2(1, 0.166667)
-icon = ExtResource("27_thm7p")
+offset_left = 40.7848
+offset_top = -414.249
+offset_right = 660.783
+offset_bottom = 105.751
+scale = Vector2(25.2713, 1.77174)
+icon = ExtResource("22_mhxx7")
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="TulipTimer" type="Timer" parent="."]
 
@@ -1479,6 +1507,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(32.52, 17.92)
 mouse_filter = 2
+theme = ExtResource("1_10pbt")
 
 [node name="AppleAnimation" type="AnimatedSprite2D" parent="GardenControl"]
 visible = false
@@ -1548,7 +1577,9 @@ wait_time = 60.0
 [connection signal="mouse_exited" from="Background/DoorControl/RightButton" to="." method="_on_right_button_mouse_exited"]
 [connection signal="button_down" from="Background/LeftControl/LeftButton" to="." method="_on_left_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl/IrisBuyButton" to="." method="_on_iris_buy_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl/SunflowerBuyButton" to="." method="_on_sunflower_buy_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl/MarigoldBuyButton" to="." method="_on_marigold_buy_button_button_down"]
@@ -1561,10 +1592,12 @@ wait_time = 60.0
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl/CornflowerBuyButton" to="." method="_on_cornflower_buy_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton" to="." method="_on_rose_buy_button_button_down"]
 [connection signal="button_down" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_down"]
+[connection signal="button_up" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_up"]
 [connection signal="button_down" from="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton" to="." method="_on_compost_buy_button_button_down"]
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
 [connection signal="button_up" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_up"]
 [connection signal="button_down" from="ShopButtonControl2/ShopButton2" to="." method="_on_shop_button_2_button_down"]
+[connection signal="button_up" from="ShopButtonControl2/ShopButton2" to="." method="_on_shop_button_2_button_up"]
 [connection signal="timeout" from="TulipTimer" to="." method="_on_tulip_timer_timeout"]
 [connection signal="input_event" from="GardenControl/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="AppleTimer" to="." method="_on_apple_timer_timeout"]
