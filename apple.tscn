@@ -21,4 +21,9 @@ position = Vector2(-1, -1)
 scale = Vector2(1.16513, 1.02532)
 shape = SubResource("CircleShape2D_mnfii")
 
+[node name="bounceTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="bounceTimer" to="." method="_on_bounce_timer_timeout"]

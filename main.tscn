@@ -76,18 +76,21 @@ centered = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 591.667
-offset_top = 132.778
-offset_right = 631.667
-offset_bottom = 172.778
-scale = Vector2(1.7627, 6.38412)
+offset_left = 571.111
+offset_top = 98.3333
+offset_right = 611.111
+offset_bottom = 138.333
+scale = Vector2(2.60714, 8.00634)
 mouse_filter = 2
 
 [node name="RightButton" type="Button" parent="Background/DoorControl"]
-offset_left = -337.866
-offset_top = -30.1965
-offset_right = 390.134
-offset_bottom = 489.804
+layout_mode = 0
+offset_left = -258.478
+offset_top = -20.7474
+offset_right = 469.522
+offset_bottom = 499.253
+scale = Vector2(0.443282, 0.127668)
+pivot_offset = Vector2(-0.06, 0)
 icon = ExtResource("5_krc4w")
 flat = true
 
@@ -122,6 +125,7 @@ scale = Vector2(1.50605, 0.681508)
 mouse_filter = 2
 
 [node name="LeftButton" type="Button" parent="Background/LeftControl"]
+layout_mode = 0
 offset_left = -8.85318
 offset_top = 396.18
 offset_right = 511.147
@@ -290,7 +294,7 @@ position = Vector2(31.4521, 34.9563)
 scale = Vector2(-0.0255592, 0.020337)
 texture = ExtResource("18_0n8xp")
 
-[node name="DaffodilControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
+[node name="DaffodilsControl" type="Control" parent="GreenhouseControl/VisiblePlantsControl"]
 visible = false
 clip_contents = true
 anchors_preset = 0
@@ -301,7 +305,7 @@ offset_bottom = 57.6779
 scale = Vector2(0.145425, 0.45992)
 mouse_filter = 2
 
-[node name="Daffodil" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/DaffodilControl"]
+[node name="Daffodils" type="Sprite2D" parent="GreenhouseControl/VisiblePlantsControl/DaffodilsControl"]
 position = Vector2(17.0186, 34.9563)
 scale = Vector2(-0.0255592, 0.020337)
 texture = ExtResource("19_u5p5o")
@@ -363,6 +367,7 @@ mouse_filter = 2
 
 [node name="CloseShopButton" type="Button" parent="ShopControl/ShopBackground/CloseShopControl"]
 clip_contents = true
+layout_mode = 0
 offset_left = 10.7843
 offset_top = -699.519
 offset_right = 1314.24
@@ -383,10 +388,11 @@ mouse_filter = 2
 [node name="ListTulipControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
 clip_contents = true
 anchors_preset = 0
-offset_top = -1.09612
-offset_right = 40.0
-offset_bottom = 38.9038
-scale = Vector2(0.742858, 0.0876899)
+offset_left = 0.903615
+offset_top = -2.2344
+offset_right = 40.9036
+offset_bottom = 37.7655
+scale = Vector2(0.51093, 0.0603122)
 mouse_filter = 2
 
 [node name="TulipTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
@@ -456,6 +462,970 @@ scale = Vector2(0.0301205, 0.107043)
 theme_override_font_sizes/font_size = 60
 text = "L.0"
 
+[node name="ListIrisControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 1.43072
+offset_top = 0.421577
+offset_right = 41.4307
+offset_bottom = 40.4215
+scale = Vector2(0.468762, 0.0553345)
+mouse_filter = 2
+
+[node name="IrisTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Iris
+"
+
+[node name="IrisCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="IrisIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="IrisMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="IrisBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="IrisBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="IrisLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListIrisControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListSunflowerControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 1.20482
+offset_top = 2.23441
+offset_right = 41.2048
+offset_bottom = 42.2343
+scale = Vector2(0.625388, 0.0493394)
+mouse_filter = 2
+
+[node name="SunflowerTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Sunflower
+"
+
+[node name="SunflowerCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="SunflowerIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="SunflowerMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="SunflowerBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="SunflowerBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="SunflowerLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListSunflowerControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListMarigoldControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.753012
+offset_top = 4.04724
+offset_right = 40.753
+offset_bottom = 44.0472
+scale = Vector2(0.3784, 0.0298535)
+mouse_filter = 2
+
+[node name="MarigoldTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Marigold"
+
+[node name="MarigoldCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="MarigoldIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="MarigoldMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="MarigoldBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="MarigoldBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="MarigoldLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListMarigoldControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListAzaleaControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.677711
+offset_top = 5.52277
+offset_right = 40.6777
+offset_bottom = 45.5227
+scale = Vector2(0.532015, 0.0419728)
+mouse_filter = 2
+
+[node name="AzaleaTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Azalea
+"
+
+[node name="AzaleaCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="AzaleaIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="AzaleaMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="AzaleaBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="AzaleaBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="AzaleaLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAzaleaControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListDaisyControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.753012
+offset_top = 7.9258
+offset_right = 40.753
+offset_bottom = 47.9257
+scale = Vector2(0.803099, 0.0633597)
+mouse_filter = 2
+
+[node name="DaisyTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Daisy"
+
+[node name="DaisyCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="DaisyIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="DaisyMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="DaisyBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="DaisyBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="DaisyLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaisyControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListDaffodilsControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.753012
+offset_top = 9.82294
+offset_right = 40.753
+offset_bottom = 49.8229
+scale = Vector2(0.772978, 0.0609834)
+mouse_filter = 2
+
+[node name="DaffodilsTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Daffodil"
+
+[node name="DaffodilsCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="DaffodilsIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="DaffodilsMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="DaffodilsBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="DaffodilsBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="DaffodilsLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListDaffodilsControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListAlyssumControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.527108
+offset_top = 11.7622
+offset_right = 40.5271
+offset_bottom = 51.7621
+scale = Vector2(0.827195, 0.0652608)
+mouse_filter = 2
+
+[node name="AlyssumTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Alyssum"
+
+[node name="AlyssumCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="AlyssumIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="AlyssumMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="AlyssumBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="AlyssumBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="AlyssumLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListAlyssumControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListGeraniumControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 1.05422
+offset_top = 14.3339
+offset_right = 41.0542
+offset_bottom = 54.3338
+scale = Vector2(0.74587, 0.0588447)
+mouse_filter = 2
+
+[node name="GeraniumTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Geranium"
+
+[node name="GeraniumCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="GeraniumIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="GeraniumMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="GeraniumBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="GeraniumBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="GeraniumLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListGeraniumControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListPerennialControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 1.35542
+offset_top = 16.3575
+offset_right = 41.3554
+offset_bottom = 56.3574
+scale = Vector2(0.71575, 0.0564684)
+mouse_filter = 2
+
+[node name="PerennialTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Perennial
+"
+
+[node name="PerennialCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="PerennialIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="PerennialMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="PerennialBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="PerennialBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="PerennialLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListPerennialControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListCornflowerControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 1.12952
+offset_top = 18.086
+offset_right = 41.1295
+offset_bottom = 58.0859
+scale = Vector2(0.718762, 0.056706)
+mouse_filter = 2
+
+[node name="CornflowerTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Cornflower"
+
+[node name="CornflowerCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="CornflowerIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="CornflowerMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="CornflowerBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="CornflowerBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="CornflowerLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListCornflowerControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ListRoseControl" type="Control" parent="ShopControl/ShopBackground/ListControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.60241
+offset_top = 20.2783
+offset_right = 40.6024
+offset_bottom = 60.2782
+scale = Vector2(0.836231, 0.0659737)
+mouse_filter = 2
+
+[node name="RoseTitle" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Rose
+"
+
+[node name="RoseCost" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="RoseIncrement" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
+layout_mode = 0
+offset_left = 18.2982
+offset_top = 5.71426
+offset_right = 145.298
+offset_bottom = 50.7143
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "+100/sec"
+
+[node name="RoseMax" type="Sprite2D" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="RoseBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 26.506
+offset_top = 5.71428
+offset_right = 66.506
+offset_bottom = 45.7143
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="RoseBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="RoseLevelLabel" type="Label" parent="ShopControl/ShopBackground/ListControl/ListRoseControl"]
+layout_mode = 0
+offset_left = 28.9156
+offset_top = 25.7142
+offset_right = 112.916
+offset_bottom = 111.714
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
+[node name="ShopControl2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 695.0
+offset_top = 1.0
+offset_right = 735.0
+offset_bottom = 41.0
+mouse_filter = 2
+
+[node name="ShopBackground2" type="Panel" parent="ShopControl2"]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="CloseShopControl2" type="Control" parent="ShopControl2/ShopBackground2"]
+clip_contents = true
+anchors_preset = 0
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 22.0
+offset_bottom = 32.0
+scale = Vector2(2.04, 2.08)
+mouse_filter = 2
+
+[node name="CloseShopButton2" type="Button" parent="ShopControl2/ShopBackground2/CloseShopControl2"]
+clip_contents = true
+layout_mode = 0
+offset_left = 10.7843
+offset_top = -699.519
+offset_right = 1314.24
+offset_bottom = 603.483
+scale = Vector2(1.1, 1.1)
+icon = SubResource("AtlasTexture_bemtv")
+flat = true
+
+[node name="ListControl2" type="Control" parent="ShopControl2/ShopBackground2"]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 80.0
+offset_right = 72.0
+offset_bottom = 120.0
+scale = Vector2(13.28, 23.72)
+mouse_filter = 2
+
+[node name="ListCompostControl" type="Control" parent="ShopControl2/ShopBackground2/ListControl2"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 0.903615
+offset_top = -2.2344
+offset_right = 40.9036
+offset_bottom = 37.7655
+scale = Vector2(0.51093, 0.0603122)
+mouse_filter = 2
+
+[node name="CompostTitle" type="Label" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
+layout_mode = 0
+offset_top = -2.85715
+offset_right = 157.0
+offset_bottom = 83.1429
+scale = Vector2(0.101232, 0.309983)
+theme = ExtResource("1_10pbt")
+theme_override_font_sizes/font_size = 60
+text = "Compost
+"
+
+[node name="CompostCost" type="Label" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
+layout_mode = 0
+offset_left = 1.20482
+offset_top = 20.0
+offset_right = 121.205
+offset_bottom = 106.0
+scale = Vector2(0.0451807, 0.141052)
+theme_override_font_sizes/font_size = 60
+text = "cost"
+
+[node name="CompostIncrement" type="Label" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
+layout_mode = 0
+offset_left = 16.5066
+offset_top = 18.8731
+offset_right = 167.507
+offset_bottom = 63.8732
+scale = Vector2(0.069277, 0.344719)
+theme_override_font_sizes/font_size = 30
+text = "value * 1.5"
+
+[node name="CompostMax" type="Sprite2D" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
+visible = false
+position = Vector2(34.5, 16.071)
+scale = Vector2(0.00765634, 0.0214865)
+texture = ExtResource("10_mb542")
+
+[node name="CompostBuyButtonControl" type="Control" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 28.0023
+offset_top = 2.79602
+offset_right = 68.0023
+offset_bottom = 42.796
+scale = Vector2(0.363078, 0.585714)
+mouse_filter = 2
+
+[node name="CompostBuyButton" type="Button" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl"]
+layout_mode = 0
+offset_left = -23.2284
+offset_top = -19.5122
+offset_right = 1278.77
+offset_bottom = 1283.49
+scale = Vector2(0.0529466, 0.11913)
+icon = ExtResource("5_a2b3g")
+flat = true
+
+[node name="CompostLevelLabel" type="Label" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
+layout_mode = 0
+offset_left = 30.3604
+offset_top = 21.6691
+offset_right = 114.361
+offset_bottom = 107.669
+scale = Vector2(0.0301205, 0.107043)
+theme_override_font_sizes/font_size = 60
+text = "L.0"
+
 [node name="ShopButtonControl" type="Control" parent="."]
 clip_contents = true
 layout_mode = 3
@@ -468,6 +1438,28 @@ scale = Vector2(0.320001, 1.48)
 mouse_filter = 2
 
 [node name="ShopButton" type="Button" parent="ShopButtonControl"]
+layout_mode = 0
+offset_left = 934.372
+offset_top = -4.72974
+offset_right = 1554.37
+offset_bottom = 515.27
+scale = Vector2(1, 0.166667)
+icon = ExtResource("27_thm7p")
+flat = true
+
+[node name="ShopButtonControl2" type="Control" parent="."]
+visible = false
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 624.0
+offset_top = 628.0
+offset_right = 2544.0
+offset_bottom = 708.0
+scale = Vector2(0.320001, 1.48)
+mouse_filter = 2
+
+[node name="ShopButton2" type="Button" parent="ShopButtonControl2"]
 layout_mode = 0
 offset_left = 934.372
 offset_top = -4.72974
@@ -523,13 +1515,68 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
+[node name="IrisTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="SunflowerTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="MarigoldTimer" type="Timer" parent="."]
+
+[node name="AzaleaTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="DaisyTimer" type="Timer" parent="."]
+
+[node name="DaffodilsTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="AlyssumTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="GeraniumTimer" type="Timer" parent="."]
+
+[node name="PerennialTimer" type="Timer" parent="."]
+
+[node name="CornflowerTimer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="RoseTimer" type="Timer" parent="."]
+
 [connection signal="button_up" from="Background/DoorControl/RightButton" to="." method="_on_right_button_button_up"]
+[connection signal="mouse_entered" from="Background/DoorControl/RightButton" to="." method="_on_right_button_mouse_entered"]
+[connection signal="mouse_exited" from="Background/DoorControl/RightButton" to="." method="_on_right_button_mouse_exited"]
 [connection signal="button_down" from="Background/LeftControl/LeftButton" to="." method="_on_left_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/CloseShopControl/CloseShopButton" to="." method="_on_close_shop_button_button_down"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl/IrisBuyButton" to="." method="_on_iris_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl/SunflowerBuyButton" to="." method="_on_sunflower_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl/MarigoldBuyButton" to="." method="_on_marigold_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl/AzaleaBuyButton" to="." method="_on_azalea_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton" to="." method="_on_daisy_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl/DaffodilsBuyButton" to="." method="_on_daffodils_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl/AlyssumBuyButton" to="." method="_on_alyssum_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl/GeraniumBuyButton" to="." method="_on_geranium_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl/PerennialBuyButton" to="." method="_on_perennial_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl/CornflowerBuyButton" to="." method="_on_cornflower_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton" to="." method="_on_rose_buy_button_button_down"]
+[connection signal="button_down" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_down"]
+[connection signal="button_down" from="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton" to="." method="_on_compost_buy_button_button_down"]
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
 [connection signal="button_up" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_up"]
+[connection signal="button_down" from="ShopButtonControl2/ShopButton2" to="." method="_on_shop_button_2_button_down"]
 [connection signal="timeout" from="TulipTimer" to="." method="_on_tulip_timer_timeout"]
 [connection signal="input_event" from="GardenControl/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="timeout" from="AppleTimer" to="." method="_on_apple_timer_timeout"]
 [connection signal="timeout" from="AppleWait" to="." method="_on_apple_wait_timeout"]
+[connection signal="timeout" from="IrisTimer" to="." method="_on_iris_timer_timeout"]
+[connection signal="timeout" from="SunflowerTimer" to="." method="_on_sunflower_timer_timeout"]
+[connection signal="timeout" from="MarigoldTimer" to="." method="_on_marigold_timer_timeout"]
+[connection signal="timeout" from="AzaleaTimer" to="." method="_on_azalea_timer_timeout"]
+[connection signal="timeout" from="DaisyTimer" to="." method="_on_daisy_timer_timeout"]
+[connection signal="timeout" from="DaffodilsTimer" to="." method="_on_daffodils_timer_timeout"]
+[connection signal="timeout" from="AlyssumTimer" to="." method="_on_alyssum_timer_timeout"]
+[connection signal="timeout" from="GeraniumTimer" to="." method="_on_geranium_timer_timeout"]
+[connection signal="timeout" from="PerennialTimer" to="." method="_on_perennial_timer_timeout"]
+[connection signal="timeout" from="CornflowerTimer" to="." method="_on_cornflower_timer_timeout"]
+[connection signal="timeout" from="RoseTimer" to="." method="_on_rose_timer_timeout"]
