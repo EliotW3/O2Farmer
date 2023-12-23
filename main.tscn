@@ -1372,6 +1372,7 @@ text = "L.0"
 metadata/_edit_use_anchors_ = true
 
 [node name="ShopControl2" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 695.0
@@ -1614,16 +1615,27 @@ wait_time = 60.0
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_down"]
 [connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl/TulipBuyButton" to="." method="_on_tulip_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl/IrisBuyButton" to="." method="_on_iris_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl/IrisBuyButton" to="." method="_on_iris_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl/SunflowerBuyButton" to="." method="_on_sunflower_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl/SunflowerBuyButton" to="." method="_on_sunflower_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl/MarigoldBuyButton" to="." method="_on_marigold_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl/MarigoldBuyButton" to="." method="_on_marigold_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl/AzaleaBuyButton" to="." method="_on_azalea_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl/AzaleaBuyButton" to="." method="_on_azalea_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton" to="." method="_on_daisy_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton" to="." method="_on_daisy_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl/DaffodilsBuyButton" to="." method="_on_daffodils_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl/DaffodilsBuyButton" to="." method="_on_daffodils_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl/AlyssumBuyButton" to="." method="_on_alyssum_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl/AlyssumBuyButton" to="." method="_on_alyssum_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl/GeraniumBuyButton" to="." method="_on_geranium_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl/GeraniumBuyButton" to="." method="_on_geranium_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl/PerennialBuyButton" to="." method="_on_perennial_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl/PerennialBuyButton" to="." method="_on_perennial_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl/CornflowerBuyButton" to="." method="_on_cornflower_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl/CornflowerBuyButton" to="." method="_on_cornflower_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton" to="." method="_on_rose_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton" to="." method="_on_rose_buy_button_button_up"]
 [connection signal="button_down" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_down"]
 [connection signal="button_up" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_up"]
 [connection signal="button_down" from="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton" to="." method="_on_compost_buy_button_button_down"]

@@ -19,6 +19,8 @@ var compostCost = 8000 # apple tree upgrades in o2 not coins - will increase by 
 var compostLevel = 0 # max of 10
 
 
+var button_up = "res://Assets/buy_button2.png"
+var button_down = "res://Assets/buy_button.png"
 
 @export var Apple : PackedScene
 
@@ -273,29 +275,8 @@ func _on_left_button_button_down():
 
 
 func _on_iris_buy_button_button_down():
-	if irisLevel < 100: # max iris level = 100
-		# increment iris level, increase production, increase iris price, remove oxygen
-		if irisCost <= coins:
-			# purchase allowed
-			coins = coins - irisCost
-			irisLevel += 1
-			irisProduction += (irisMaxProduction/100)
-			
-			if irisLevel == 1:
-				$GreenhouseControl/VisiblePlantsControl/IrisControl.show()
-				$IrisTimer.start()
-				
-				
-			
-			if irisLevel == 100:
-				# change button for buy iris to say max.
-				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisMax.show()
-				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisLevelLabel.hide()
-								
-			irisCost = int(irisCost * 1.1)
-			
-			UpdateUI()
+	$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl/IrisBuyButton.icon = load(button_down)
+	
 
 
 
@@ -307,31 +288,8 @@ func _on_iris_timer_timeout():
 
 
 func _on_sunflower_buy_button_button_down():
-	if sunflowerLevel < 100: # max sunflower level = 100
-		# increment sunflower level, increase production, increase sunflower price, remove oxygen
-		if sunflowerCost <= coins:
-			# purchase allowed
-			coins = coins - sunflowerCost
-			sunflowerLevel += 1
-			sunflowerProduction += (sunflowerMaxProduction/100)
-			
-			if sunflowerLevel == 1:
-				$GreenhouseControl/VisiblePlantsControl/SunflowerControl.show()
-				$SunflowerTimer.start()
-				
-				
-			
-			if sunflowerLevel == 100:
-				# change button for buy sunflower to say max.
-				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerMax.show()
-				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerLevelLabel.hide()
-								
-			sunflowerCost = int(sunflowerCost * 1.1)
-			
-			UpdateUI()
-
-
+	$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl/SunflowerBuyButton.icon = load(button_down)
+	
 func _on_sunflower_timer_timeout():
 	# play animation
 	o2 += sunflowerProduction
@@ -406,32 +364,12 @@ func _on_rose_timer_timeout():
 
 
 func _on_marigold_buy_button_button_down():
-	if marigoldLevel < 100: # max marigold level = 100
-		# increment marigold level, increase production, increase marigold price, remove oxygen
-		if marigoldCost <= coins:
-			# purchase allowed
-			coins = coins - marigoldCost
-			marigoldLevel += 1
-			marigoldProduction += (marigoldMaxProduction/100)
-			
-			if marigoldLevel == 1:
-				$GreenhouseControl/VisiblePlantsControl/MarigoldControl.show()
-				$MarigoldTimer.start()
-				
-				
-			
-			if marigoldLevel == 100:
-				# change button for buy marigold to say max.
-				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldMax.show()
-				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldLevelLabel.hide()
-								
-			marigoldCost = int(marigoldCost * 1.1)
-			
-			UpdateUI()
+	$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl/MarigoldBuyButton.icon = load(button_down)
 
 
-func _on_azalea_buy_button_button_down():
+
+func _on_azalea_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl/AzaleaBuyButton.icon = load(button_up)
 	if azaleaLevel < 100: # max azalea level = 100
 		# increment azalea level, increase production, increase azalea price, remove oxygen
 		if azaleaCost <= coins:
@@ -439,6 +377,7 @@ func _on_azalea_buy_button_button_down():
 			coins = coins - azaleaCost
 			azaleaLevel += 1
 			azaleaProduction += (azaleaMaxProduction/100)
+			azaleaCost = int(azaleaCost * 1.1)
 			
 			if azaleaLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/AzaleaControl.show()
@@ -452,12 +391,13 @@ func _on_azalea_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaMax.show()
 				$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaLevelLabel.hide()
 								
-			azaleaCost = int(azaleaCost * 1.1)
+
 			
 			UpdateUI()
 
 
-func _on_daisy_buy_button_button_down():
+func _on_daisy_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton.icon = load(button_up)
 	if daisyLevel < 100: # max daisy level = 100
 		# increment daisy level, increase production, increase daisy price, remove oxygen
 		if daisyCost <= coins:
@@ -465,6 +405,7 @@ func _on_daisy_buy_button_button_down():
 			coins = coins - daisyCost
 			daisyLevel += 1
 			daisyProduction += (daisyMaxProduction/100)
+			daisyCost = int(daisyCost * 1.1)
 			
 			if daisyLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/DaisyControl.show()
@@ -478,12 +419,13 @@ func _on_daisy_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyMax.show()
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyLevelLabel.hide()
 								
-			daisyCost = int(daisyCost * 1.1)
+			
 			
 			UpdateUI()
 
 
-func _on_daffodils_buy_button_button_down():
+func _on_daffodils_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl/DaffodilsBuyButton.icon = load(button_up)
 	if daffodilsLevel < 100: # max daffodils level = 100
 		# increment daffodils level, increase production, increase daffodils price, remove oxygen
 		if daffodilsCost <= coins:
@@ -491,6 +433,7 @@ func _on_daffodils_buy_button_button_down():
 			coins = coins - daffodilsCost
 			daffodilsLevel += 1
 			daffodilsProduction += (daffodilsMaxProduction/100)
+			daffodilsCost = int(daffodilsCost * 1.1)
 			
 			if daffodilsLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/DaffodilsControl.show()
@@ -504,12 +447,13 @@ func _on_daffodils_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsMax.show()
 				$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsLevelLabel.hide()
 								
-			daffodilsCost = int(daffodilsCost * 1.1)
+			
 			
 			UpdateUI()
 
 
-func _on_alyssum_buy_button_button_down():
+func _on_alyssum_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl/AlyssumBuyButton.icon = load(button_up)
 	if alyssumLevel < 100: # max alyssum level = 100
 		# increment alyssum level, increase production, increase alyssum price, remove oxygen
 		if alyssumCost <= coins:
@@ -517,6 +461,7 @@ func _on_alyssum_buy_button_button_down():
 			coins = coins - alyssumCost
 			alyssumLevel += 1
 			alyssumProduction += (alyssumMaxProduction/100)
+			alyssumCost = int(alyssumCost * 1.1)
 			
 			if alyssumLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/AlyssumControl.show()
@@ -530,12 +475,13 @@ func _on_alyssum_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumMax.show()
 				$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumLevelLabel.hide()
 								
-			alyssumCost = int(alyssumCost * 1.1)
+			
 			
 			UpdateUI()
 
 
-func _on_geranium_buy_button_button_down():
+func _on_geranium_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl/GeraniumBuyButton.icon = load(button_up)
 	if geraniumLevel < 100: # max geranium level = 100
 		# increment geranium level, increase production, increase geranium price, remove oxygen
 		if geraniumCost <= coins:
@@ -543,6 +489,7 @@ func _on_geranium_buy_button_button_down():
 			coins = coins - geraniumCost
 			geraniumLevel += 1
 			geraniumProduction += (geraniumMaxProduction/100)
+			geraniumCost = int(geraniumCost * 1.1)
 			
 			if geraniumLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/GeraniumControl.show()
@@ -556,12 +503,13 @@ func _on_geranium_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumMax.show()
 				$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumLevelLabel.hide()
 								
-			geraniumCost = int(geraniumCost * 1.1)
+			
 			
 			UpdateUI()
 
 
-func _on_perennial_buy_button_button_down():
+func _on_perennial_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl/PerennialBuyButton.icon = load(button_up)
 	if perennialLevel < 100: # max perennial level = 100
 		# increment perennial level, increase production, increase perennial price, remove oxygen
 		if perennialCost <= coins:
@@ -569,6 +517,7 @@ func _on_perennial_buy_button_button_down():
 			coins = coins - perennialCost
 			perennialLevel += 1
 			perennialProduction += (perennialMaxProduction/100)
+			perennialCost = int(perennialCost * 1.1)
 			
 			if perennialLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/PerennialControl.show()
@@ -582,12 +531,13 @@ func _on_perennial_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialMax.show()
 				$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialLevelLabel.hide()
 								
-			perennialCost = int(perennialCost * 1.1)
+			
 			
 			UpdateUI()
 
 
-func _on_cornflower_buy_button_button_down():
+func _on_cornflower_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl/CornflowerBuyButton.icon = load(button_up)
 	if cornflowerLevel < 100: # max cornflower level = 100
 		# increment cornflower level, increase production, increase cornflower price, remove oxygen
 		if cornflowerCost <= coins:
@@ -595,6 +545,7 @@ func _on_cornflower_buy_button_button_down():
 			coins = coins - cornflowerCost
 			cornflowerLevel += 1
 			cornflowerProduction += (cornflowerMaxProduction/100)
+			cornflowerCost = int(cornflowerCost * 1.1)
 			
 			if cornflowerLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/CornflowerControl.show()
@@ -608,11 +559,12 @@ func _on_cornflower_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerMax.show()
 				$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerLevelLabel.hide()
 								
-			cornflowerCost = int(cornflowerCost * 1.1)
+			
 			
 			UpdateUI()
 
-func _on_rose_buy_button_button_down():
+func _on_rose_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton.icon = load(button_up)
 	if roseLevel < 100: # max rose level = 100
 		# increment rose level, increase production, increase rose price, remove oxygen
 		if roseCost <= coins:
@@ -620,6 +572,7 @@ func _on_rose_buy_button_button_down():
 			coins = coins - roseCost
 			roseLevel += 1
 			roseProduction += (roseMaxProduction/100)
+			roseCost = int(roseCost * 1.1)
 			
 			if roseLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/RoseControl.show()
@@ -633,7 +586,7 @@ func _on_rose_buy_button_button_down():
 				$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseMax.show()
 				$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseLevelLabel.hide()
 								
-			roseCost = int(roseCost * 1.1)
+			
 			
 			UpdateUI()
 
@@ -647,6 +600,7 @@ func _on_compost_buy_button_button_down():
 			o2 = o2 - compostCost
 			compostLevel += 1
 			appleValue = appleValue * 1.5
+			compostCost = int(compostCost * 6)
 			
 			if compostLevel == 1:
 				# show the compost sprite
@@ -659,7 +613,7 @@ func _on_compost_buy_button_button_down():
 				$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostMax.show()
 				$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostLevelLabel.hide()
 								
-			compostCost = int(compostCost * 6)
+			
 			
 			UpdateUI()
 
@@ -712,6 +666,7 @@ func _on_tulip_buy_button_button_up():
 			coins = coins - tulipCost
 			tulipLevel += 1
 			tulipProduction += (tulipMaxProduction/100)
+			tulipCost = int(tulipCost * 1.1)
 			
 			if tulipLevel == 1:
 				$GreenhouseControl/VisiblePlantsControl/TulipControl.show()
@@ -725,6 +680,125 @@ func _on_tulip_buy_button_button_up():
 				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipMax.show()
 				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipLevelLabel.hide()
 								
-			tulipCost = int(tulipCost * 1.1)
+
 			
 			UpdateUI()
+
+
+
+func _on_iris_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl/IrisBuyButton.icon = load(button_up)
+	if irisLevel < 100: # max iris level = 100
+		# increment iris level, increase production, increase iris price, remove oxygen
+		if irisCost <= coins:
+			# purchase allowed
+			coins = coins - irisCost
+			irisLevel += 1
+			irisProduction += (irisMaxProduction/100)
+			irisCost = int(irisCost * 1.1)
+			
+			if irisLevel == 1:
+				$GreenhouseControl/VisiblePlantsControl/IrisControl.show()
+				$IrisTimer.start()
+				
+				
+			
+			if irisLevel == 100:
+				# change button for buy iris to say max.
+				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl.hide()
+				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisMax.show()
+				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisLevelLabel.hide()
+								
+
+			
+			UpdateUI()
+
+
+func _on_sunflower_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl/SunflowerBuyButton.icon = load(button_up)
+	if sunflowerLevel < 100: # max sunflower level = 100
+		# increment sunflower level, increase production, increase sunflower price, remove oxygen
+		if sunflowerCost <= coins:
+			# purchase allowed
+			coins = coins - sunflowerCost
+			sunflowerLevel += 1
+			sunflowerProduction += (sunflowerMaxProduction/100)
+			sunflowerCost = int(sunflowerCost * 1.1)
+			
+			if sunflowerLevel == 1:
+				$GreenhouseControl/VisiblePlantsControl/SunflowerControl.show()
+				$SunflowerTimer.start()
+				
+				
+			
+			if sunflowerLevel == 100:
+				# change button for buy sunflower to say max.
+				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl.hide()
+				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerMax.show()
+				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerLevelLabel.hide()
+								
+
+			
+			UpdateUI()
+
+
+
+func _on_marigold_buy_button_button_up():
+	$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl/MarigoldBuyButton.icon = load(button_up)
+	if marigoldLevel < 100: # max marigold level = 100
+		# increment marigold level, increase production, increase marigold price, remove oxygen
+		if marigoldCost <= coins:
+			# purchase allowed
+			coins = coins - marigoldCost
+			marigoldLevel += 1
+			marigoldProduction += (marigoldMaxProduction/100)
+			marigoldCost = int(marigoldCost * 1.1)
+			
+		if marigoldLevel == 1:
+				$GreenhouseControl/VisiblePlantsControl/MarigoldControl.show()
+				$MarigoldTimer.start()
+				
+				
+			
+		if marigoldLevel == 100:
+				# change button for buy marigold to say max.
+				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl.hide()
+				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldMax.show()
+				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldLevelLabel.hide()
+								
+
+			
+		UpdateUI()
+
+
+
+func _on_azalea_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl/AzaleaBuyButton.icon = load(button_down)
+
+
+func _on_daisy_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl/DaisyBuyButton.icon = load(button_down)
+
+
+func _on_daffodils_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl/DaffodilsBuyButton.icon = load(button_down)
+
+
+func _on_alyssum_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl/AlyssumBuyButton.icon = load(button_down)
+
+
+func _on_geranium_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl/GeraniumBuyButton.icon = load(button_down)
+
+
+func _on_perennial_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl/PerennialBuyButton.icon = load(button_down)
+
+
+func _on_cornflower_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl/CornflowerBuyButton.icon = load(button_down)
+
+
+func _on_rose_buy_button_button_down():
+	$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton.icon = load(button_down)
