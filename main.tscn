@@ -349,6 +349,7 @@ scale = Vector2(-0.0255592, 0.020337)
 texture = ExtResource("21_i5a2c")
 
 [node name="ShopControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -1421,10 +1422,10 @@ mouse_filter = 2
 [node name="ListCompostControl" type="Control" parent="ShopControl2/ShopBackground2/ListControl2"]
 clip_contents = true
 anchors_preset = 0
-offset_left = 2.78614
-offset_top = -1.34907
-offset_right = 72.7861
-offset_bottom = 38.6509
+offset_left = 2.71084
+offset_top = -1.39123
+offset_right = 72.7108
+offset_bottom = 38.6087
 scale = Vector2(0.51093, 0.0603122)
 mouse_filter = 2
 
@@ -1458,20 +1459,20 @@ texture = ExtResource("10_mb542")
 [node name="CompostBuyButtonControl" type="Control" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl"]
 clip_contents = true
 anchors_preset = 0
-offset_left = 28.0023
-offset_top = 2.79602
-offset_right = 68.0023
-offset_bottom = 42.796
-scale = Vector2(0.363078, 0.585714)
+offset_left = 52.9097
+offset_top = -2.097
+offset_right = 107.91
+offset_bottom = 57.903
+scale = Vector2(0.29, 0.46)
 mouse_filter = 2
 
 [node name="CompostBuyButton" type="Button" parent="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl"]
 layout_mode = 0
-offset_left = -23.2284
-offset_top = -19.5122
-offset_right = 1278.77
-offset_bottom = 1283.49
-scale = Vector2(0.0529466, 0.11913)
+offset_left = -3.04926
+offset_top = -1010.52
+offset_right = 1298.95
+offset_bottom = 292.484
+scale = Vector2(0.74, 1.6)
 icon = ExtResource("5_a2b3g")
 flat = true
 
@@ -1509,6 +1510,7 @@ flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ShopButtonControl2" type="Control" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -1639,6 +1641,7 @@ wait_time = 60.0
 [connection signal="button_down" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_down"]
 [connection signal="button_up" from="ShopControl2/ShopBackground2/CloseShopControl2/CloseShopButton2" to="." method="_on_close_shop_button_2_button_up"]
 [connection signal="button_down" from="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton" to="." method="_on_compost_buy_button_button_down"]
+[connection signal="button_up" from="ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton" to="." method="_on_compost_buy_button_button_up"]
 [connection signal="button_down" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_down"]
 [connection signal="button_up" from="ShopButtonControl/ShopButton" to="." method="_on_shop_button_button_up"]
 [connection signal="button_down" from="ShopButtonControl2/ShopButton2" to="." method="_on_shop_button_2_button_down"]

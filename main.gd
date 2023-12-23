@@ -591,7 +591,8 @@ func _on_rose_buy_button_button_up():
 			UpdateUI()
 
 
-func _on_compost_buy_button_button_down():
+func _on_compost_buy_button_button_up():
+	$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton.icon = load(button_up)
 	# compost purchase
 	if compostLevel < 20:
 		# uses oxygen instead
@@ -802,3 +803,7 @@ func _on_cornflower_buy_button_button_down():
 
 func _on_rose_buy_button_button_down():
 	$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl/RoseBuyButton.icon = load(button_down)
+
+
+func _on_compost_buy_button_button_down():
+	$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton.icon = load(button_down)

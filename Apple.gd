@@ -5,15 +5,31 @@ var speed = 300
 
 
 var rng = RandomNumberGenerator.new()
+var speedX = 0
 var endPositionY = rng.randf_range(28, 31)
-var speedX = rng.randf_range(-100,100)
 
+
+	
+
+func setX():
+	if position.x >= 23:
+		speedX = rng.randf_range(0,100)
+	else:
+		speedX = rng.randf_range(-100,0)
+
+var checkedX = false
 var bounced = false
 
 signal collect
 
 
 func _physics_process(delta):
+	if checkedX == false:
+		if position.x >= 23:
+			speedX = rng.randf_range(0,100)
+		else:
+			speedX = rng.randf_range(-100,0)
+		checkedX = true
 	if position.y <= endPositionY:
 		position += transform.y * speed * delta
 		position += transform.x * speedX * delta
