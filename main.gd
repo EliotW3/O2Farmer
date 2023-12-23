@@ -3,11 +3,11 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 
 # variables
-var coins = 1000000
+var coins = 1000
 var o2 = 0
 
 var query_apple = false
-var appleTimer = 60 # 60 seconds for apples to grow
+var appleTimer = 30 # 30 seconds for apples to grow
 var appleQuantity = 5 # number of apples grown on timer finish
 var appleValue = 10 # value of each apple
 
@@ -16,8 +16,16 @@ var appleValue = 10 # value of each apple
 var query_compost = false # compost upgrade adds a multiplier to apple value
 var compostMultiplier = 1.5
 var compostCost = 8000 # apple tree upgrades in o2 not coins - will increase by 6x 
-var compostLevel = 0 # max of 10
+var compostLevel = 0 # max of 50
 
+var query_bees = false # bees upgrade decreases the wait for apples
+var beesReduction = 1
+var beesCost = 10000
+var beeLevel = 0 # max of 25
+
+var query_fertiliser = false # increases number of apples by 1
+var fertLevel = 0 # max of 25
+var fertCost = 12000
 
 var button_up = "res://Assets/buy_button2.png"
 var button_down = "res://Assets/buy_button.png"
@@ -99,8 +107,8 @@ func _ready():
 
 # function to update UI
 func UpdateUI():
-	$Background/O2Label.text = str(o2)
-	$Background/CoinsLabel.text = str(coins)
+	$Background/CurrencyPanel/O2Label.text = "O2: " + str(o2)
+	$Background/CurrencyPanel/CoinsLabel.text = "Coins: " + str(coins)
 	
 	$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipCost.text = str(tulipCost)
 	$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipIncrement.text = "+" + str(tulipProduction) + "/sec"
@@ -152,6 +160,12 @@ func UpdateUI():
 	
 	$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostCost.text = str(compostCost)
 	$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostLevelLabel.text = "L." + str(compostLevel)
+	
+	$ShopControl2/ShopBackground2/ListControl2/ListBeesControl/BeesCost.text = str(beesCost)
+	$ShopControl2/ShopBackground2/ListControl2/ListBeesControl/BeesLevelLabel.text = "L." + str(beeLevel)
+	
+	$ShopControl2/ShopBackground2/ListControl2/ListFertiliserControl/FertCost.text = str(fertCost)
+	$ShopControl2/ShopBackground2/ListControl2/ListFertiliserControl/FertLevelLabel.text = "L." + str(fertLevel)
 
 
 func setGreenhouse():
@@ -161,6 +175,8 @@ func setGreenhouse():
 	$GardenControl.hide()
 	$Background/LeftControl.hide()
 	$ShopControl2.hide()
+	
+	$Background/CurrencyPanel.set_position(Vector2(502,8))
 	
 	$ShopButtonControl2.hide()
 	$ShopButtonControl.show()
@@ -176,6 +192,8 @@ func setGarden():
 	$ShopControl.hide()
 	$ShopButtonControl2.show()
 	$ShopButtonControl.hide()
+	
+	$Background/CurrencyPanel.set_position(Vector2(25,8))
 	
 	greenhousePage = 2
 
@@ -388,7 +406,6 @@ func _on_azalea_buy_button_button_up():
 			if azaleaLevel == 100:
 				# change button for buy azalea to say max.
 				$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaMax.show()
 				$ShopControl/ShopBackground/ListControl/ListAzaleaControl/AzaleaLevelLabel.hide()
 								
 
@@ -416,7 +433,7 @@ func _on_daisy_buy_button_button_up():
 			if daisyLevel == 100:
 				# change button for buy daisy to say max.
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListDaisyControl/DaisyLevelLabel.hide()
 								
 			
@@ -444,7 +461,7 @@ func _on_daffodils_buy_button_button_up():
 			if daffodilsLevel == 100:
 				# change button for buy daffodils to say max.
 				$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListDaffodilsControl/DaffodilsLevelLabel.hide()
 								
 			
@@ -472,7 +489,7 @@ func _on_alyssum_buy_button_button_up():
 			if alyssumLevel == 100:
 				# change button for buy alyssum to say max.
 				$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListAlyssumControl/AlyssumLevelLabel.hide()
 								
 			
@@ -500,7 +517,7 @@ func _on_geranium_buy_button_button_up():
 			if geraniumLevel == 100:
 				# change button for buy geranium to say max.
 				$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListGeraniumControl/GeraniumLevelLabel.hide()
 								
 			
@@ -528,7 +545,7 @@ func _on_perennial_buy_button_button_up():
 			if perennialLevel == 100:
 				# change button for buy perennial to say max.
 				$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListPerennialControl/PerennialLevelLabel.hide()
 								
 			
@@ -556,7 +573,7 @@ func _on_cornflower_buy_button_button_up():
 			if cornflowerLevel == 100:
 				# change button for buy cornflower to say max.
 				$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListCornflowerControl/CornflowerLevelLabel.hide()
 								
 			
@@ -583,7 +600,7 @@ func _on_rose_buy_button_button_up():
 			if roseLevel == 100:
 				# change button for buy rose to say max.
 				$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListRoseControl/RoseLevelLabel.hide()
 								
 			
@@ -594,7 +611,7 @@ func _on_rose_buy_button_button_up():
 func _on_compost_buy_button_button_up():
 	$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton.icon = load(button_up)
 	# compost purchase
-	if compostLevel < 20:
+	if compostLevel < 50:
 		# uses oxygen instead
 		if compostCost <= o2:
 			# purchase allowed
@@ -608,10 +625,10 @@ func _on_compost_buy_button_button_up():
 				pass
 				
 			
-			if compostLevel == 20:
+			if compostLevel == 50:
 				
 				$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl.hide()
-				$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostMax.show()
+
 				$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostLevelLabel.hide()
 								
 			
@@ -678,7 +695,7 @@ func _on_tulip_buy_button_button_up():
 			if tulipLevel == 100:
 				# change button for buy tulip to say max.
 				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListTulipControl/TulipLevelLabel.hide()
 								
 
@@ -707,7 +724,7 @@ func _on_iris_buy_button_button_up():
 			if irisLevel == 100:
 				# change button for buy iris to say max.
 				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListIrisControl/IrisLevelLabel.hide()
 								
 
@@ -735,7 +752,7 @@ func _on_sunflower_buy_button_button_up():
 			if sunflowerLevel == 100:
 				# change button for buy sunflower to say max.
 				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListSunflowerControl/SunflowerLevelLabel.hide()
 								
 
@@ -764,7 +781,7 @@ func _on_marigold_buy_button_button_up():
 		if marigoldLevel == 100:
 				# change button for buy marigold to say max.
 				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldBuyButtonControl.hide()
-				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldMax.show()
+
 				$ShopControl/ShopBackground/ListControl/ListMarigoldControl/MarigoldLevelLabel.hide()
 								
 
@@ -807,3 +824,81 @@ func _on_rose_buy_button_button_down():
 
 func _on_compost_buy_button_button_down():
 	$ShopControl2/ShopBackground2/ListControl2/ListCompostControl/CompostBuyButtonControl/CompostBuyButton.icon = load(button_down)
+
+
+func _on_bees_buy_button_button_down():
+	$ShopControl2/ShopBackground2/ListControl2/ListBeesControl/BeesBuyButtonControl/BeesBuyButton.icon = load(button_down)
+
+
+
+func _on_bees_buy_button_button_up():
+	$ShopControl2/ShopBackground2/ListControl2/ListBeesControl/BeesBuyButtonControl/BeesBuyButton.icon = load(button_up)
+	# bees purchase
+	if beeLevel < 25:
+		# uses oxygen instead
+		if beesCost <= o2:
+			# purchase allowed
+			o2 = o2 - beesCost
+			beeLevel += 1
+			appleTimer = appleTimer - 1
+			beesCost = int(beesCost * 6)
+			
+			$AppleTimer.wait_time = appleTimer
+			
+			if beeLevel == 1:
+				# show the bees sprite
+				pass
+				
+			
+			if beeLevel == 25:
+				
+				$ShopControl2/ShopBackground2/ListControl2/ListBeesControl/BeesBuyButtonControl.hide()
+
+				$ShopControl2/ShopBackground2/ListControl2/ListBeesControl/BeesLevelLabel.hide()
+								
+			
+			
+			UpdateUI()
+
+
+
+func _on_fert_buy_button_button_down():
+	$ShopControl2/ShopBackground2/ListControl2/ListFertiliserControl/FertBuyButtonControl/FertBuyButton.icon = load(button_down)
+
+
+func _on_fert_buy_button_button_up():
+	$ShopControl2/ShopBackground2/ListControl2/ListFertiliserControl/FertBuyButtonControl/FertBuyButton.icon = load(button_up)
+	# bees purchase
+	if fertLevel < 25:
+		# uses oxygen instead
+		if fertCost <= o2:
+			# purchase allowed
+			o2 = o2 - fertCost
+			fertLevel += 1
+			appleQuantity = appleQuantity + 1
+			fertCost = int(fertCost * 6)
+			
+			if fertLevel == 1:
+				# show the bees sprite
+				pass
+				
+			
+			if fertLevel == 25:
+				
+				$ShopControl2/ShopBackground2/ListControl2/ListFertilserControl/FertBuyButtonControl.hide()
+
+				$ShopControl2/ShopBackground2/ListControl2/ListFertiliserControl/FertLevelLabel.hide()
+								
+			
+			
+			UpdateUI()
+
+
+func _on_menu_button_button_down():
+	$Background/CurrencyPanel/MenuButtonControl/MenuButton.icon = load("res://Assets/Pixelart/Buttons/menu_button2.png")
+
+
+func _on_menu_button_button_up():
+	$Background/CurrencyPanel/MenuButtonControl/MenuButton.icon = load("res://Assets/Pixelart/Buttons/menu_button.png")
+	
+	# open menu, with help, audio(?), and save options

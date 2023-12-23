@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://btdrxjyx6njvc" path="res://Assets/Fonts/fonts/ttf/Micro5-Regular.ttf" id="1_h603e"]
 
 [resource]
+default_font = ExtResource("1_h603e")
 default_font_size = 0
 HScrollBar/icons/decrement = null
 Label/fonts/font = ExtResource("1_h603e")
