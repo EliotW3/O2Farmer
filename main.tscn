@@ -1,9 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhj3osglx5xpw"]
+[gd_scene load_steps=31 format=3 uid="uid://bhj3osglx5xpw"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
 [ext_resource type="PackedScene" uid="uid://co4u2r8cbm3k8" path="res://apple.tscn" id="2_0mrs6"]
-[ext_resource type="Texture2D" uid="uid://c68tn6dcu0f26" path="res://Assets/buyButton2.png" id="5_a2b3g"]
+[ext_resource type="Texture2D" uid="uid://b1yci0afas2r8" path="res://Assets/buy_button2.png" id="5_a2b3g"]
 [ext_resource type="Texture2D" uid="uid://cwc3ubrrdtjn" path="res://Assets/Pixelart/greenhouse_door.png" id="5_krc4w"]
 [ext_resource type="Texture2D" uid="uid://tumsyuymfu1p" path="res://Assets/maxButton.png" id="10_mb542"]
 [ext_resource type="Texture2D" uid="uid://b37yywt3e2xck" path="res://Assets/Pixelart/tulip.png" id="10_xyr0t"]
@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://clcp0x56bhbjv" path="res://Assets/Pixelart/daffodils.png" id="19_u5p5o"]
 [ext_resource type="Texture2D" uid="uid://cpwbgi151yobl" path="res://Assets/Pixelart/geraniums.png" id="20_w7lfw"]
 [ext_resource type="Texture2D" uid="uid://c8jqgyspdaun6" path="res://Assets/Pixelart/daisy.png" id="21_i5a2c"]
-[ext_resource type="Texture2D" uid="uid://b1yci0afas2r8" path="res://Assets/buy_button2.png" id="21_o84cp"]
 [ext_resource type="Texture2D" uid="uid://bvgpwpy14ir05" path="res://Assets/Pixelart/Buttons/shop_button.png" id="22_mhxx7"]
 [ext_resource type="Texture2D" uid="uid://dsm1yhir8bw4m" path="res://Assets/Pixelart/appletree_ungrown.png" id="27_amns8"]
 [ext_resource type="Texture2D" uid="uid://q57bxm5w1vhg" path="res://Assets/Pixelart/appletree_grown.png" id="28_mrojt"]
@@ -449,23 +448,33 @@ scale = Vector2(0.00765634, 0.0214865)
 texture = ExtResource("10_mb542")
 
 [node name="TulipBuyButtonControl" type="Control" parent="ShopControl/ShopBackground/ListControl/ListTulipControl"]
-anchors_preset = 0
+clip_contents = true
+layout_mode = 1
+anchor_left = -0.0152184
+anchor_top = -0.0690823
+anchor_right = -0.0152184
+anchor_bottom = -0.0690823
 offset_left = 54.8256
 offset_top = 9.08704
-offset_right = 94.8256
-offset_bottom = 49.0871
+offset_right = 109.826
+offset_bottom = 69.087
 scale = Vector2(0.363078, 0.585714)
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TulipBuyButton" type="Button" parent="ShopControl/ShopBackground/ListControl/ListTulipControl/TulipBuyButtonControl"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125466
+anchor_top = 0.346541
+anchor_right = 0.125466
+anchor_bottom = 0.34654
 offset_left = -6.90065
 offset_top = -1076.47
 offset_right = 1295.1
 offset_bottom = 226.534
 scale = Vector2(0.740233, 1.66553)
-icon = ExtResource("21_o84cp")
+icon = ExtResource("5_a2b3g")
 flat = true
 metadata/_edit_use_anchors_ = true
 

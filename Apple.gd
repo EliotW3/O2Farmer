@@ -2,8 +2,11 @@ extends Node2D
 
 var speed = 300
 
+
+
 var rng = RandomNumberGenerator.new()
 var endPositionY = rng.randf_range(28, 31)
+var speedX = rng.randf_range(-100,100)
 
 var bounced = false
 
@@ -13,6 +16,7 @@ signal collect
 func _physics_process(delta):
 	if position.y <= endPositionY:
 		position += transform.y * speed * delta
+		position += transform.x * speedX * delta
 	else:
 		if bounced == false:
 			bounce()
@@ -36,6 +40,7 @@ func bounce():
 	bounced = true
 	position.y = position.y - 1
 	speed = -100
+	speedX = speedX/3
 	$bounceTimer.start()
 	
 	
