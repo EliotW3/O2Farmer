@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg3g6lwrhrv1q"
-path="res://.godot/imported/wriggleButton.png-c34e221c1762023af155626aa34bf0ca.ctex"
+uid="uid://d4gnifni8emiv"
+path="res://.godot/imported/mulch.png-b1aab3814e278554fb4467f3c6cbc4d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/wriggleButton.png"
-dest_files=["res://.godot/imported/wriggleButton.png-c34e221c1762023af155626aa34bf0ca.ctex"]
+source_file="res://Assets/Pixelart/mulch.png"
+dest_files=["res://.godot/imported/mulch.png-b1aab3814e278554fb4467f3c6cbc4d7.ctex"]
 
 [params]
 

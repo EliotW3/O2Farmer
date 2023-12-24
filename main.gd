@@ -17,15 +17,18 @@ var query_compost = false # compost upgrade adds a multiplier to apple value
 var compostMultiplier = 1.5
 var compostCost = 8000 # apple tree upgrades in o2 not coins - will increase by 6x 
 var compostLevel = 0 # max of 50
+var mulchInfo = "Mulch increases the value of apples."
 
 var query_bees = false # bees upgrade decreases the wait for apples
 var beesReduction = 1
 var beesCost = 10000
 var beeLevel = 0 # max of 25
+var beeInfo = "Bees increase the speed of apples growing."
 
 var query_fertiliser = false # increases number of apples by 1
 var fertLevel = 0 # max of 25
 var fertCost = 12000
+var fertInfo = "Fertiliser increases the number of apples the tree produces."
 
 var button_up = "res://Assets/buy_button2.png"
 var button_down = "res://Assets/buy_button.png"
@@ -621,8 +624,7 @@ func _on_compost_buy_button_button_up():
 			compostCost = int(compostCost * 6)
 			
 			if compostLevel == 1:
-				# show the compost sprite
-				pass
+				$GardenControl/MulchControl.show()
 				
 			
 			if compostLevel == 50:
@@ -846,8 +848,7 @@ func _on_bees_buy_button_button_up():
 			$AppleTimer.wait_time = appleTimer
 			
 			if beeLevel == 1:
-				# show the bees sprite
-				pass
+				$GardenControl/BeesControl.show()
 				
 			
 			if beeLevel == 25:
@@ -900,5 +901,50 @@ func _on_menu_button_button_down():
 
 func _on_menu_button_button_up():
 	$Background/CurrencyPanel/MenuButtonControl/MenuButton.icon = load("res://Assets/Pixelart/Buttons/menu_button.png")
-	
-	# open menu, with help, audio(?), and save options
+	$MenuControl.show()
+	#  with help, audio(?), and save options
+
+
+func _on_mulch_info_mouse_entered():
+	$ShopControl2/InfoPanel.show()
+	$ShopControl2/InfoPanel/InfoText.text = mulchInfo
+
+
+func _on_mulch_info_mouse_exited():
+	$ShopControl2/InfoPanel.hide()
+
+
+func _on_bees_info_mouse_exited():
+	$ShopControl2/InfoPanel.hide()
+
+
+func _on_bees_info_mouse_entered():
+	$ShopControl2/InfoPanel.show()
+	$ShopControl2/InfoPanel/InfoText.text = beeInfo
+
+
+func _on_fert_info_mouse_exited():
+	$ShopControl2/InfoPanel.hide()
+
+
+func _on_fert_info_mouse_entered():
+	$ShopControl2/InfoPanel.show()
+	$ShopControl2/InfoPanel/InfoText.text = fertInfo
+
+
+func _on_close_menu_button_button_down():
+	$MenuControl/MenuBackground/CloseMenuButton.icon = load("res://Assets/Pixelart/Buttons/x_button2.png")
+
+
+func _on_close_menu_button_button_up():
+	$MenuControl/MenuBackground/CloseMenuButton.icon = load("res://Assets/Pixelart/Buttons/x_button.png")
+	$MenuControl.hide()
+
+
+func _on_exit_button_button_down():
+	$MenuControl/MenuBackground/ExitButton.icon = load("res://Assets/Pixelart/ImportUI/Pixel Buttons v1.0/2 Menu Buttons/White Shade/Blue Menu Buttons/9.png")
+
+
+func _on_exit_button_button_up():
+	$MenuControl/MenuBackground/ExitButton.icon = load("res://Assets/Pixelart/ImportUI/Pixel Buttons v1.0/2 Menu Buttons/White Shade/Blue Menu Buttons/8.png")
+	# save game function here

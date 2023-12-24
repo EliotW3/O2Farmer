@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ln88k1cl3hg3"
-path="res://.godot/imported/daisy1.png-a3aee2804521d3df6b1848e2e8060f33.ctex"
+uid="uid://s6uswupksvsc"
+path="res://.godot/imported/hive.png-abdbae6255fe76cfb07ad822a3e8854d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/daisy1.png"
-dest_files=["res://.godot/imported/daisy1.png-a3aee2804521d3df6b1848e2e8060f33.ctex"]
+source_file="res://Assets/Pixelart/hive.png"
+dest_files=["res://.godot/imported/hive.png-abdbae6255fe76cfb07ad822a3e8854d.ctex"]
 
 [params]
 
