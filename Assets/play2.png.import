@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnodfgjy7bk6u"
-path="res://.godot/imported/arrow_button1.png-ab999aa37492d1b1f6de910759baaabf.ctex"
+uid="uid://csv7m0aqy2rpt"
+path="res://.godot/imported/play2.png-a535b3d8b706a633d90cc1f7f3579403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pixelart/arrow_button1.png"
-dest_files=["res://.godot/imported/arrow_button1.png-ab999aa37492d1b1f6de910759baaabf.ctex"]
+source_file="res://Assets/play2.png"
+dest_files=["res://.godot/imported/play2.png-a535b3d8b706a633d90cc1f7f3579403.ctex"]
 
 [params]
 

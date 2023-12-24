@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbo20g5w033wx"]
+
+[ext_resource type="Script" path="res://landing.gd" id="1_v58gl"]
+[ext_resource type="Texture2D" uid="uid://dptudd66fn5sf" path="res://Assets/Pixelart/greenhouse.png" id="2_805yv"]
+[ext_resource type="Texture2D" uid="uid://cfomcar6ov5gi" path="res://Assets/play1.png" id="3_iuy78"]
+[ext_resource type="Texture2D" uid="uid://ckqlamk3dg8ga" path="res://Assets/desktopgreenhouse.png" id="4_76nsc"]
+
+[node name="Landing" type="Node2D"]
+script = ExtResource("1_v58gl")
+
+[node name="LandingControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_force_pass_scroll_events = false
+
+[node name="Background" type="Sprite2D" parent="LandingControl"]
+scale = Vector2(1.78959, 1.78959)
+texture = ExtResource("2_805yv")
+centered = false
+
+[node name="PlayButton" type="Button" parent="LandingControl"]
+offset_left = 416.0
+offset_top = 384.0
+offset_right = 488.0
+offset_bottom = 424.0
+scale = Vector2(2.2, 2.2)
+icon = ExtResource("3_iuy78")
+flat = true
+
+[node name="Title" type="Sprite2D" parent="LandingControl"]
+position = Vector2(488, 304)
+scale = Vector2(0.832816, 0.832816)
+texture = ExtResource("4_76nsc")
+
+[connection signal="button_down" from="LandingControl/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_up" from="LandingControl/PlayButton" to="." method="_on_play_button_button_up"]
