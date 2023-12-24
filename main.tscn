@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_2d5s0"]
 [ext_resource type="Theme" uid="uid://cgg3diq50tr2n" path="res://default_theme.tres" id="1_10pbt"]
 [ext_resource type="PackedScene" uid="uid://co4u2r8cbm3k8" path="res://apple.tscn" id="2_0mrs6"]
-[ext_resource type="Texture2D" path="res://Assets/buy_button2.png" id="5_a2b3g"]
+[ext_resource type="Texture2D" uid="uid://b1yci0afas2r8" path="res://Assets/buy_button2.png" id="5_a2b3g"]
 [ext_resource type="Texture2D" uid="uid://cwc3ubrrdtjn" path="res://Assets/Pixelart/greenhouse_door.png" id="5_krc4w"]
 [ext_resource type="Texture2D" uid="uid://dm77xmjwnoeyr" path="res://Assets/Pixelart/Buttons/menu_button.png" id="6_8o7il"]
 [ext_resource type="Texture2D" uid="uid://b37yywt3e2xck" path="res://Assets/Pixelart/tulip.png" id="10_xyr0t"]
@@ -1592,6 +1592,7 @@ theme_override_font_sizes/font_size = 60
 text = "L.0"
 
 [node name="BeesInfo" type="Button" parent="ShopControl2/ShopBackground2/ListControl2/ListBeesControl"]
+layout_mode = 0
 offset_left = 28.5918
 offset_top = -1.39803
 offset_right = 68.5918
@@ -1661,6 +1662,7 @@ theme_override_font_sizes/font_size = 60
 text = "L.0"
 
 [node name="FertInfo" type="Button" parent="ShopControl2/ShopBackground2/ListControl2/ListFertiliserControl"]
+layout_mode = 0
 offset_left = 28.5918
 offset_top = -1.39803
 offset_right = 68.5918
